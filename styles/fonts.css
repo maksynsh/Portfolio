@@ -1,0 +1,35 @@
+@tailwind base;
+
+@layer base {
+  @font-face {
+    font-family: 'NeueMontreal';
+    font-style: normal;
+    font-weight: light;
+    font-display: swap;
+    src: url(/fonts/NeueMontreal-Light.woff) format('woff');
+  }
+
+  @font-face {
+    font-family: 'NeueMontreal';
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url(/fonts/NeueMontreal-Regular.woff) format('woff');
+  }
+
+  @font-face {
+    font-family: 'NeueMontreal';
+    font-style: normal;
+    font-weight: medium;
+    font-display: swap;
+    src: url(/fonts/NeueMontreal-Medium.woff) format('woff');
+  }
+
+  @font-face {
+    font-family: 'NeueMontreal';
+    font-style: normal;
+    font-weight: bold;
+    font-display: swap;
+    src: url(/fonts/NeueMontreal-Bold.woff2) format('woff2');
+  }
+}
