@@ -12,13 +12,14 @@ const buttonVariants = cva(
       variant: {
         default: 'bg-white text-black hover:bg-white/90',
         magic: '!rounded-xl !p-px disabled:!p-0 w-fit text-white',
+        link: 'underline-offset-4 text-purple hover:text-glow hover:underline',
       },
       size: {
         default: 'h-10 rounded-lg px-4 py-2',
         sm: 'h-9 rounded-lg px-2',
         lg: 'h-11 rounded-xl px-4',
         xl: 'h-14 text-lg rounded-xl px-12',
-        link: 'h-fit p-1',
+        link: 'h-fit px-1',
       },
     },
     defaultVariants: {

@@ -15,7 +15,7 @@ export const Hero = () => {
           fill="pink"
         />
         <Spotlight
-          className="-top-40 left-14 sm:left-52 md:left-64 md:-top-44"
+          className="-top-120 left-14 sm:left-52 md:left-64 md:-top-80 z-30"
           fill="white"
         />
       </div>
@@ -37,7 +37,7 @@ export const Hero = () => {
           className="max-w-[89vw] md:max-w-xl lg:max-w-3xl flex flex-col
             items-center justify-center gap-4"
         >
-          <h2
+          <p
             className="inline-block sm:whitespace-nowrap uppercase
               tracking-widest text-xs text-left dark:text-blue-100 w-52 sm:w-80"
           >
@@ -50,21 +50,22 @@ export const Hero = () => {
                 duration={100}
               />
             </span>
-          </h2>
+          </p>
           <TextRevealEffect
+            as="h1"
             className="text-center text-4xl md:text-5xl lg:text-6xl"
             defaultWordsClassName="bg-clip-text text-transparent bg-gradient-to-b
-                    from-slate-50 via-slate-300 to-slate-500 bg-opacity-50"
+                    from-slate-50/90 via-slate-300/90 to-slate-500/80 bg-opacity-50"
             words="Turning visions into Flawless Interactions 🚀"
             paintedWordsIndexes={[3, 4]}
             paintedWordsVariant="purpleGradient"
           />
-          <p
+          <h2
             className="text-center text-sm md:text-lg lg:text-2xl tracking-wider
               mb-4 text-glow"
           >
             Hi, I&apos;m Max, a Web Developer based in Ukraine.
-          </p>
+          </h2>
 
           <Button
             href="#about"

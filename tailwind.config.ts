@@ -29,6 +29,15 @@ const config = {
       fontFamily: {
         body: ['NeueMontreal'],
       },
+      spacing: {
+        100: '25rem',
+        120: '30rem',
+        128: '32rem',
+        130: '32.5rem',
+        140: '35rem',
+        150: '37.5rem',
+        160: '40rem',
+      },
       colors: {
         black: {
           DEFAULT: '#000',
@@ -61,7 +70,7 @@ const config = {
           950: '#161a31',
         },
         purple: {
-          default: '#CBACF9',
+          DEFAULT: '#CBACF9',
           500: '#a855f7',
         },
         violet: {

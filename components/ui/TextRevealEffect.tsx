@@ -5,6 +5,7 @@ import { useEffect, useMemo } from 'react'
 import { cn } from '@/utils'
 
 export const TextRevealEffect = ({
+  as = 'p',
   words,
   className,
   filter = true,
@@ -13,6 +14,7 @@ export const TextRevealEffect = ({
   paintedWordsVariant,
   defaultWordsClassName,
 }: {
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div'
   words: string
   className?: string
   filter?: boolean
@@ -73,9 +75,11 @@ export const TextRevealEffect = ({
     )
   }
 
+  const Tag = as
+
   return (
-    <div className={cn('font-bold leading-snug tracking-wide', className)}>
+    <Tag className={cn('font-bold leading-snug tracking-wide', className)}>
       {renderWords()}
-    </div>
+    </Tag>
   )
 }

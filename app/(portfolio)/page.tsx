@@ -1,4 +1,4 @@
-import { About, Hero } from '@/components/home'
+import { About, Hero, Highlights } from '@/components/home'
 import { Navbar } from '@/components/layout'
 import { navItems } from '@/data/nav'
 
@@ -8,6 +8,7 @@ export default function Home() {
       <Navbar navItems={navItems} />
       <Hero />
       <About />
+      <Highlights />
     </div>
   )
 }

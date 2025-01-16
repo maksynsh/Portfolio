@@ -100,19 +100,19 @@ export const BentoGridItem = ({
             pointer-events-none`,
           )}
         >
-          <div
+          <p
             className="font-sans font-light dark:text-slate-400 text-sm
               md:text-xs lg:text-base text-black/80 z-20"
           >
             {description}
-          </div>
-          <div
+          </p>
+          <h3
             className="font-sans font-bold text-lg lg:text-3xl max-w-96
               group-hover/bento:text-glow transition-all ease-out duration-300
               z-20"
           >
             {title}
-          </div>
+          </h3>
 
           {extensions?.includes('3dGlobe') && (
             <GridGlobe

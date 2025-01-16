@@ -31,6 +31,7 @@ export * from './FlipWords'
 export * from './Globe'
 export * from './GridGlobe'
 export * from './Paper'
+export * from './PinContainer'
 export * from './Spotlight'
 export * from './TextRevealEffect'
 //@endindex
