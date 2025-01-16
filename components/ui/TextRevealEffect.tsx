@@ -11,13 +11,15 @@ export const TextRevealEffect = ({
   duration = 0.5,
   paintedWordsIndexes,
   paintedWordsVariant,
+  defaultWordsClassName,
 }: {
   words: string
   className?: string
   filter?: boolean
   duration?: number
   paintedWordsIndexes?: number[]
-  paintedWordsVariant?: 'purple'
+  paintedWordsVariant?: 'purple' | 'purpleGradient'
+  defaultWordsClassName?: string
 }) => {
   const [scope, animate] = useAnimate()
   const wordsArray = words.split(' ')
@@ -39,6 +41,8 @@ export const TextRevealEffect = ({
     switch (paintedWordsVariant) {
       case 'purple':
         return 'text-purple'
+      case 'purpleGradient':
+        return 'bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500'
       default:
         return 'text-purple'
     }
@@ -53,7 +57,9 @@ export const TextRevealEffect = ({
               key={word + idx}
               className={cn(
                 'opacity-0',
-                paintedWordsIndexes?.includes(idx) ? paintedWordsClass : '',
+                paintedWordsIndexes?.includes(idx)
+                  ? paintedWordsClass
+                  : defaultWordsClassName,
               )}
               style={{
                 filter: filter ? 'blur(10px)' : 'none',

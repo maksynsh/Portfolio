@@ -6,12 +6,12 @@ import { cn } from '@/utils'
 const buttonVariants = cva(
   `relative flex items-center justify-center overflow-hidden gap-2 cursor-pointer
         focus:outline-none focus:ring-1 focus:ring-slate-400 focus:ring-offset-1
-        focus:ring-offset-slate-50 transition-all group`,
+        focus:ring-offset-slate-50 transition-all group disabled:pointer-events-none disabled:opacity-80 disabled:text-opacity-80`,
   {
     variants: {
       variant: {
         default: 'bg-white text-black hover:bg-white/90',
-        magic: '!rounded-xl !p-px w-fit text-white',
+        magic: '!rounded-xl !p-px disabled:!p-0 w-fit text-white',
       },
       size: {
         default: 'h-10 rounded-lg px-4 py-2',
@@ -32,8 +32,9 @@ interface ButtonProps
   extends VariantProps<typeof buttonVariants>,
     HTMLAttributes<HTMLElement> {
   href?: string
-  iconLeft?: ReactNode
-  iconRight?: ReactNode
+  icon?: ReactNode
+  iconPosition?: 'left' | 'right'
+  disabled?: boolean
 }
 
 export const Button = (props: ButtonProps) => {
@@ -45,15 +46,15 @@ export const Button = (props: ButtonProps) => {
       {...props}
       className={cn(buttonVariants({ variant, size }), className)}
     >
-      {renderContent(props)}
+      <Content {...props} />
     </Tag>
   )
 }
 
-const renderContent = ({
+const Content = ({
   variant,
-  iconLeft,
-  iconRight,
+  icon,
+  iconPosition = 'left',
   children,
 }: ButtonProps) => {
   if (variant === 'magic') {
@@ -66,11 +67,11 @@ const renderContent = ({
         <span
           className="inline-flex h-full w-full cursor-pointer items-center
             justify-center rounded-xl bg-slate-950 px-6 backdrop-blur-3xl
-            group-hover:scale-[98%] transition-all gap-2"
+            group-hover:scale-[98%] active:rotate-1 transition-all gap-2"
         >
-          {iconLeft}
+          {iconPosition === 'left' ? icon : null}
           {children}
-          {iconRight}
+          {iconPosition === 'right' ? icon : null}
         </span>
       </>
     )
@@ -78,9 +79,9 @@ const renderContent = ({
 
   return (
     <>
-      {iconLeft}
+      {iconPosition === 'left' ? icon : null}
       {children}
-      {iconRight}
+      {iconPosition === 'right' ? icon : null}
     </>
   )
 }

@@ -1,4 +1,4 @@
-import { aboutItems } from '@/data/home'
+import { aboutItems } from '@/data/portfolio'
 
 import { BentoGrid, BentoGridItem } from '../ui'
 
@@ -7,13 +7,7 @@ export const About = () => {
     <section id="about">
       <BentoGrid>
         {aboutItems.map(item => (
-          <BentoGridItem
-            key={item.id}
-            id={item.id}
-            title={item.title}
-            description={item.description}
-            className={item.className}
-          />
+          <BentoGridItem key={item.id} {...item} />
         ))}
       </BentoGrid>
     </section>

@@ -23,7 +23,7 @@
 
 //@endindex
 
-//@index('./*.tsx', f => `export * from '${f.path}';`)
+//@index('./*.tsx', f => `export * from '${f.path}'`)
 export * from './About'
 export * from './Hero'
 //@endindex

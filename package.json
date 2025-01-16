@@ -16,6 +16,8 @@
     "posttest": "npm.cmd run lint"
   },
   "dependencies": {
+    "@react-three/drei": "^9.121.1",
+    "@react-three/fiber": "^9.0.0-alpha.8",
     "clsx": "^2.1.1",
     "cva": "npm:class-variance-authority@^0.7.1",
     "framer-motion": "^11.17.0",
@@ -25,13 +27,17 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
-    "tailwind-merge": "^2.6.0"
+    "react-lottie": "^1.2.10",
+    "tailwind-merge": "^2.6.0",
+    "three": "^0.172.0",
+    "three-globe": "^2.40.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/react-lottie": "^1.2.10",
     "eslint": "^9",
     "eslint-config-next": "15.1.4",
     "eslint-config-prettier": "^10.0.1",

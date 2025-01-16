@@ -19,13 +19,17 @@
  * ) => string
  */
 
-//@index('./*/index.ts', (f, _, info) => `export * from '${f.path.replace('/index', '')}';`)
-
+//@index('./*/index.ts', (f, _, info) => `export * from '${f.path.replace('/index', '')}'`)
+export * from './BentoGrid'
 //@endindex
 
-//@index('./*.tsx', f => `export * from '${f.path}';`)
-export * from './BentoGrid'
+//@index('./*.tsx', f => `export * from '${f.path}'`)
+export * from './BackgroundGradientAnimation'
 export * from './Button'
+export * from './Confetti'
+export * from './FlipWords'
+export * from './Globe'
+export * from './GridGlobe'
 export * from './Paper'
 export * from './Spotlight'
 export * from './TextRevealEffect'

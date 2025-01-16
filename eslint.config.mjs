@@ -6,8 +6,8 @@ import simpleImportSortPlugin from 'eslint-plugin-simple-import-sort'
 import tailwindcssPlugin from 'eslint-plugin-tailwindcss'
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import eslintConfigPrettier from 'eslint-config-prettier'
-import prettierConfig from 'eslint-config-prettier';
-import prettierPlugin from 'eslint-plugin-prettier';
+import prettierConfig from 'eslint-config-prettier'
+import prettierPlugin from 'eslint-plugin-prettier'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -32,7 +32,7 @@ const eslintConfig = [
       '**/*.d.ts',
     ],
   },
-  { 
+  {
     plugins: {
       ['import']: importPlugin,
       ['simple-import-sort']: simpleImportSortPlugin,
@@ -42,8 +42,8 @@ const eslintConfig = [
     rules: {
       ...prettierConfig.rules,
       'prettier/prettier': 'warn',
-      'simple-import-sort/imports': "warn",
-      'simple-import-sort/exports': "warn",
+      'simple-import-sort/imports': 'warn',
+      'simple-import-sort/exports': 'warn',
       'func-names': 'error',
       'max-len': [
         'off',
@@ -57,6 +57,12 @@ const eslintConfig = [
   eslintPluginPrettierRecommended,
   eslintConfigPrettier,
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
+  {
+    rules: {
+      '@next/next/no-img-element': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
+    },
+  },
 ]
 
 export default eslintConfig

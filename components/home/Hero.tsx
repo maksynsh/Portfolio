@@ -1,20 +1,23 @@
 import { IoNavigate } from 'react-icons/io5'
 
-import { Button, Spotlight, TextRevealEffect } from '../ui'
+import { Button, FlipWords, Spotlight, TextRevealEffect } from '../ui'
 
 export const Hero = () => {
   return (
     <section className="flex flex-col w-full pb-20 pt-36">
       <div>
         <Spotlight
-          className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen"
-          fill="white"
+          className="top-10 -left-40 md:-left-36 md:top-20 h-screen"
+          fill="#a855f7"
         />
         <Spotlight
-          className="top-10 left-full h-[80vh] w-[50vw]"
-          fill="purple"
+          className="-top-10 left-3/4 h-[85vh] w-[60vw] invisible md:visible"
+          fill="pink"
         />
-        <Spotlight className="top-28 left-80 h-[85vh] w-[50vw]" fill="blue" />
+        <Spotlight
+          className="-top-40 left-14 sm:left-52 md:left-64 md:-top-44"
+          fill="white"
+        />
       </div>
 
       <div
@@ -35,16 +38,26 @@ export const Hero = () => {
             items-center justify-center gap-4"
         >
           <h2
-            className="uppercase tracking-widest text-xs text-center
-              dark:text-blue-100 max-w-80"
+            className="inline-block sm:whitespace-nowrap uppercase
+              tracking-widest text-xs text-left dark:text-blue-100 w-52 sm:w-80"
           >
-            Dynamic Web Magic with Next.js
+            {/* Enthusiast with passion for web technologies */}I build web
+            applications that are
+            <span>
+              <FlipWords
+                className="font-bold"
+                words={['Beautiful.', 'Slick.', 'Fast.', 'Cute :3', 'Modern.']}
+                duration={100}
+              />
+            </span>
           </h2>
           <TextRevealEffect
             className="text-center text-4xl md:text-5xl lg:text-6xl"
+            defaultWordsClassName="bg-clip-text text-transparent bg-gradient-to-b
+                    from-slate-50 via-slate-300 to-slate-500 bg-opacity-50"
             words="Turning visions into Flawless Interactions 🚀"
             paintedWordsIndexes={[3, 4]}
-            paintedWordsVariant="purple"
+            paintedWordsVariant="purpleGradient"
           />
           <p
             className="text-center text-sm md:text-lg lg:text-2xl tracking-wider
@@ -55,11 +68,12 @@ export const Hero = () => {
 
           <Button
             href="#about"
-            iconRight={
+            icon={
               <IoNavigate
                 className="group-hover:translate-x-1.5 transition-all ease-in"
               />
             }
+            iconPosition="right"
             variant="magic"
             size="lg"
           >

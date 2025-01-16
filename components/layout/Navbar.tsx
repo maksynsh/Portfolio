@@ -6,7 +6,7 @@ import {
   useScroll,
 } from 'framer-motion'
 import Link from 'next/link'
-import React, { ReactNode, useState } from 'react'
+import { ReactNode, useState } from 'react'
 
 import { cn } from '@/utils'
 

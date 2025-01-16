@@ -23,6 +23,6 @@
 
 //@endindex
 
-//@index('./*.tsx', f => `export * from '${f.path}';`)
+//@index('./*.tsx', f => `export * from '${f.path}'`)
 export * from './ThemeProvider'
 //@endindex
