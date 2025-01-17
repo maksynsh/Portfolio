@@ -12,7 +12,8 @@ import { cn } from '@/utils'
 import { Tabs } from '../ui'
 
 export interface NavItem {
-  name: string
+  title: string
+  value: string
   url: string
   icon?: ReactNode
 }
@@ -41,19 +42,14 @@ export const Navbar = ({
     }
   })
 
-  const navTabs = useMemo(
-    () =>
-      navItems.map(n => ({
-        title: n.name,
-        value: n.name,
-        url: n.url,
-      })),
+  const defaultTab = useMemo(
+    () => navItems.find(tab => tab.url === window.location.hash) ?? navItems[0],
     [navItems],
   )
 
   return (
     <AnimatePresence mode="wait">
-      <motion.div
+      <motion.nav
         initial={{
           opacity: 1,
           y: -100,
@@ -72,27 +68,14 @@ export const Navbar = ({
         )}
       >
         <Tabs
-          tabs={navTabs}
-          defaultTab={navTabs[0]}
+          tabs={navItems}
+          defaultTab={defaultTab}
           containerClassName={`bg-gray-400/5 saturate-50 hover:brightness-110 transition-all 
             backdrop-blur-xl border border-white/10 rounded-full p-1.5 shadow-md gap-2`}
           activeTabClassName="bg-gray-500/10 dark:bg-gray-700/20"
+          onlyIconsOnMobile
         />
-        {/* {navItems.map((navItem, idx: number) => (
-          <Link
-            key={`nav-link=${idx}`}
-            href={navItem.url}
-            className={cn(
-              `relative dark:text-neutral-50 items-center flex space-x-1
-              text-neutral-600 dark:hover:text-neutral-300
-              hover:text-neutral-500`,
-            )}
-          >
-            <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="hidden sm:block text-sm">{navItem.name}</span>
-          </Link>
-        ))} */}
-      </motion.div>
+      </motion.nav>
     </AnimatePresence>
   )
 }

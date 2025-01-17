@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
+import { ReactNode, useEffect, useRef, useState } from 'react'
 
 import { cn } from '@/utils'
 
@@ -11,6 +11,7 @@ type Tab = {
   title: string
   value: string
   url?: string
+  icon?: ReactNode
 }
 
 export const Tabs = ({
@@ -19,12 +20,14 @@ export const Tabs = ({
   containerClassName,
   activeTabClassName,
   tabClassName,
+  onlyIconsOnMobile,
 }: {
   tabs: Tab[]
   defaultTab?: Tab
   containerClassName?: string
   activeTabClassName?: string
   tabClassName?: string
+  onlyIconsOnMobile?: boolean
 }) => {
   const [active, setActive] = useState<Tab | undefined>(defaultTab)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -37,13 +40,15 @@ export const Tabs = ({
   useEffect(() => {
     if (containerRef.current && active) {
       const activeIndex = propTabs.findIndex(tab => tab.value === active.value)
-      const activeButton =
+      const activeButton: HTMLElement | null =
         containerRef.current.querySelectorAll('a')[activeIndex]
+      const glowIndicator: HTMLElement | null =
+        document.querySelector('#glow-indicator')
 
-      if (activeButton) {
-        const { offsetLeft, offsetWidth } = activeButton as HTMLElement
+      if (activeButton && glowIndicator) {
+        const { offsetLeft, offsetWidth } = activeButton
         setIndicatorStyle({
-          left: offsetLeft + offsetWidth / 2 - 12,
+          left: offsetLeft + offsetWidth / 2 - glowIndicator.offsetWidth / 2,
         })
       }
     }
@@ -58,8 +63,8 @@ export const Tabs = ({
       ></div> */}
       <motion.div
         id="glow-indicator"
-        className="h-1 w-6 bg-gray-100 rounded shadow-[0_3px_21px_3px_#fff]
-          absolute -top-0.5"
+        className="h-1 w-2 md:w-6 bg-gray-100 rounded
+          shadow-[0_3px_21px_3px_#fff] absolute -top-0.5"
         style={{
           boxShadow:
             '0 0 17px 6px rgba(255, 255, 255, 0.45), 0 0 34px 12px rgba(255, 255, 255, 0.3)',
@@ -90,9 +95,12 @@ export const Tabs = ({
               selectTab(idx)
             }}
             className={cn(
-              `relative rounded-full min-w-20 focus:ring-0 focus:ring-offset-0
+              `relative rounded-full focus:ring-0 focus:ring-offset-0
               outline-none hover:bg-gradient-to-r from-slate-300/5
               to-slate-500/5 overflow-visible`,
+              onlyIconsOnMobile && tab.icon
+                ? 'size-9 p-0 md:min-w-20'
+                : 'min-w-20',
               tabClassName,
             )}
             style={{
@@ -110,8 +118,17 @@ export const Tabs = ({
               />
             )}
 
-            <span className="relative block text-black dark:text-white">
+            <span
+              className={onlyIconsOnMobile && tab.icon ? 'hidden md:block' : ''}
+            >
               {tab.title}
+            </span>
+            <span
+              className={
+                onlyIconsOnMobile && tab.icon ? 'block md:hidden' : 'hidden'
+              }
+            >
+              {tab.icon}
             </span>
           </Button>
         ))}
