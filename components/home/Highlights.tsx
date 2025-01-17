@@ -69,7 +69,6 @@ export const Highlights = () => {
 
                 <Button
                   className="text-sm md:text-base dark:text-purple"
-                  href={link}
                   variant="link"
                   size="link"
                   icon={<IoArrowForward className="size-5 md:size-6" />}

@@ -33,5 +33,6 @@ export * from './GridGlobe'
 export * from './Paper'
 export * from './PinContainer'
 export * from './Spotlight'
+export * from './Tabs'
 export * from './TextRevealEffect'
 //@endindex

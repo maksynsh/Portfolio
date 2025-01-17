@@ -15,7 +15,8 @@ export const Hero = () => {
           fill="pink"
         />
         <Spotlight
-          className="-top-120 left-14 sm:left-52 md:left-64 md:-top-80 z-30"
+          className="-top-120 left-14 sm:left-56 md:left-80 md:-top-80
+            lg:-top-120 z-30"
           fill="white"
         />
       </div>
@@ -37,7 +38,7 @@ export const Hero = () => {
           className="max-w-[89vw] md:max-w-xl lg:max-w-3xl flex flex-col
             items-center justify-center gap-4"
         >
-          <p
+          <div
             className="inline-block sm:whitespace-nowrap uppercase
               tracking-widest text-xs text-left dark:text-blue-100 w-52 sm:w-80"
           >
@@ -50,7 +51,7 @@ export const Hero = () => {
                 duration={100}
               />
             </span>
-          </p>
+          </div>
           <TextRevealEffect
             as="h1"
             className="text-center text-4xl md:text-5xl lg:text-6xl"

@@ -5,10 +5,11 @@ import {
   useMotionValueEvent,
   useScroll,
 } from 'framer-motion'
-import Link from 'next/link'
-import { ReactNode, useState } from 'react'
+import { ReactNode, useMemo, useState } from 'react'
 
 import { cn } from '@/utils'
+
+import { Tabs } from '../ui'
 
 export interface NavItem {
   name: string
@@ -40,6 +41,16 @@ export const Navbar = ({
     }
   })
 
+  const navTabs = useMemo(
+    () =>
+      navItems.map(n => ({
+        title: n.name,
+        value: n.name,
+        url: n.url,
+      })),
+    [navItems],
+  )
+
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -55,15 +66,19 @@ export const Navbar = ({
           duration: 0.2,
         }}
         className={cn(
-          `flex max-w-fit fixed top-10 inset-x-0 mx-auto border
-          border-transparent dark:border-white/[0.2] rounded-full dark:bg-black
-          bg-white
-          shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)]
-          z-[5000] pr-2 pl-8 py-2 items-center justify-center space-x-4`,
+          `flex max-w-fit fixed top-10 inset-x-0 mx-auto z-[5000] items-center
+          justify-center`,
           className,
         )}
       >
-        {navItems.map((navItem, idx: number) => (
+        <Tabs
+          tabs={navTabs}
+          defaultTab={navTabs[0]}
+          containerClassName={`bg-gray-400/5 saturate-50 hover:brightness-110 transition-all 
+            backdrop-blur-xl border border-white/10 rounded-full p-1.5 shadow-md gap-2`}
+          activeTabClassName="bg-gray-500/10 dark:bg-gray-700/20"
+        />
+        {/* {navItems.map((navItem, idx: number) => (
           <Link
             key={`nav-link=${idx}`}
             href={navItem.url}
@@ -76,7 +91,7 @@ export const Navbar = ({
             <span className="block sm:hidden">{navItem.icon}</span>
             <span className="hidden sm:block text-sm">{navItem.name}</span>
           </Link>
-        ))}
+        ))} */}
       </motion.div>
     </AnimatePresence>
   )

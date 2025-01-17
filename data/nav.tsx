@@ -5,6 +5,6 @@ import { NavItem } from '@/components/layout'
 export const navItems: NavItem[] = [
   { name: 'About', url: '#about', icon: <IoHomeOutline /> },
   { name: 'Projects', url: '#projects' },
-  { name: 'Testimonials', url: '#testimonials' },
+  { name: 'Progress', url: '#progress' },
   { name: 'Contact', url: '#contact' },
 ]
