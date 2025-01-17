@@ -5,7 +5,7 @@ import {
   useMotionValueEvent,
   useScroll,
 } from 'framer-motion'
-import { ReactNode, useMemo, useState } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 
 import { cn } from '@/utils'
 
@@ -41,11 +41,15 @@ export const Navbar = ({
       }
     }
   })
+  const [defaultTab, setDefaultTab] = useState(navItems[0])
 
-  const defaultTab = useMemo(
-    () => navItems.find(tab => tab.url === window.location.hash) ?? navItems[0],
-    [navItems],
-  )
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setDefaultTab(
+        navItems.find(tab => tab.url === window.location.hash) ?? navItems[0],
+      )
+    }
+  }, [])
 
   return (
     <AnimatePresence mode="wait">

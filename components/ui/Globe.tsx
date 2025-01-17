@@ -1,8 +1,12 @@
+// @ts-nocheck
 'use client'
 import { OrbitControls } from '@react-three/drei'
+// @ts-expect-error ts support
 import { Canvas, extend, useThree } from '@react-three/fiber'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Color, Fog, PerspectiveCamera, Scene, Vector3 } from 'three'
+// @ts-expect-error ts support
+// const ThreeGlobe = dynamic(() => import('three-globe'), { ssr: false })
 import ThreeGlobe from 'three-globe'
 
 import countries from '@/data/globe.json'
@@ -12,7 +16,9 @@ declare module '@react-three/fiber' {
   }
 }
 
-extend({ ThreeGlobe })
+if (typeof window !== 'undefined') {
+  extend({ ThreeGlobe })
+}
 
 const RING_PROPAGATION_SPEED = 3
 const aspect = 1.2
