@@ -63,8 +63,7 @@ export const Tabs = ({
       ></div> */}
       <motion.div
         id="glow-indicator"
-        className="h-1 w-2 md:w-6 bg-gray-100 rounded
-          shadow-[0_3px_21px_3px_#fff] absolute -top-0.5"
+        className="h-1 w-2 md:w-6 bg-gray-100 rounded absolute -top-0.5"
         style={{
           boxShadow:
             '0 0 17px 6px rgba(255, 255, 255, 0.45), 0 0 34px 12px rgba(255, 255, 255, 0.3)',

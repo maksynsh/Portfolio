@@ -2,13 +2,15 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import React, { useEffect, useRef, useState } from 'react'
 
+import { cn } from '@/utils'
+
 interface TimelineEntry {
   title: string
   content: React.ReactNode
 }
 
 export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
-  const ref = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLUListElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const [height, setHeight] = useState(0)
 
@@ -29,11 +31,14 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div id="journey-timeline" className="w-full md:px-10" ref={containerRef}>
-      <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
+      <ul ref={ref} className="relative max-w-7xl mx-auto pb-20">
         {data.map((item, index) => (
-          <div
+          <li
             key={index}
-            className="flex justify-start pt-10 md:pt-40 md:gap-10"
+            className={cn(
+              'flex justify-start md:gap-10',
+              index !== 0 && 'pt-10 md:pt-40',
+            )}
           >
             <div
               className="sticky flex flex-col md:flex-row z-40 items-center
@@ -67,7 +72,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               </h3>
               {item.content}{' '}
             </div>
-          </div>
+          </li>
         ))}
         <div
           style={{
@@ -89,7 +94,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               rounded-full"
           />
         </div>
-      </div>
+      </ul>
     </div>
   )
 }

@@ -4,7 +4,7 @@ import { Button, FlipWords, Spotlight, TextRevealEffect } from '../ui'
 
 export const Hero = () => {
   return (
-    <section className="relative flex flex-col w-full pb-20 pt-36">
+    <section id="hero" className="relative flex flex-col w-full pb-20 pt-36">
       <div>
         <Spotlight
           className="top-10 -left-40 md:-left-36 md:top-20 h-screen"

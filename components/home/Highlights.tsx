@@ -36,7 +36,12 @@ export const Highlights = () => {
                   <img src="/assets/bg.png" alt="Background image" />
                 </div>
 
-                <img src={img} alt={title} className="absolute z-10 bottom-0" />
+                <img
+                  src={img}
+                  alt={title}
+                  className="absolute z-10 bottom-0"
+                  loading="lazy"
+                />
               </Paper>
 
               <h3
@@ -62,7 +67,12 @@ export const Highlights = () => {
                         bg-black-100 size-8 lg:size-10 flex justify-center
                         items-center"
                     >
-                      <img className="p-1.5" src={icon} alt="Tech icon" />
+                      <img
+                        className="p-1.5"
+                        src={icon}
+                        alt="Tech icon"
+                        loading="lazy"
+                      />
                     </div>
                   ))}
                 </div>

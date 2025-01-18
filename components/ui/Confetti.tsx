@@ -1,22 +1,36 @@
 'use client'
 
-import { ReactNode } from 'react'
-import Lottie, { Options } from 'react-lottie'
+import { ReactNode, Ref } from 'react'
+import Lottie, { LottieProps, Options } from 'react-lottie'
 
 import animationData from '@/data/mini-confetti.json'
 import { cn } from '@/utils'
 
-interface ConfettiProps {
+interface ConfettiProps extends Omit<LottieProps, 'options'> {
+  ref?: Ref<any>
   className?: string
+  positionClassName?: string
   options: Pick<Options, 'loop' | 'autoplay'>
   children?: ReactNode
 }
 
-export const Confetti = ({ className, options, children }: ConfettiProps) => {
+export const Confetti = ({
+  className,
+  positionClassName,
+  options,
+  children,
+  ...lottieProps
+}: ConfettiProps) => {
   return (
     <div className={cn('relative', className)}>
-      <div className="absolute bottom-0 translate-y-1/2 right-0">
+      <div
+        className={cn(
+          'absolute bottom-0 translate-y-1/2 right-0',
+          positionClassName,
+        )}
+      >
         <Lottie
+          {...lottieProps}
           options={{
             ...options,
             animationData,
