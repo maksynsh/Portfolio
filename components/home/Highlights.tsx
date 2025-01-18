@@ -1,6 +1,6 @@
 import { IoArrowForward } from 'react-icons/io5'
 
-import { projects } from '@/data/portfolio'
+import { projects } from '@/data/projects'
 
 import { Button, Paper, PinContainer } from '../ui'
 

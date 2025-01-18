@@ -1,4 +1,4 @@
-import { techStack } from '@/data/portfolio'
+import { techStack } from '@/data/tech-stack'
 
 export const TechStack = () => (
   <div className="flex gap-3 lg:gap-2 w-fit absolute -right-3 lg:-right-2">
