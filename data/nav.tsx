@@ -1,8 +1,8 @@
 import {
+  IoBriefcaseOutline,
+  IoChatbubbleEllipsesOutline,
   IoCodeWorking,
   IoHomeOutline,
-  IoPaperPlane,
-  IoPerson,
 } from 'react-icons/io5'
 
 import { NavItem } from '@/components/layout'
@@ -13,13 +13,18 @@ export const navItems: NavItem[] = [
     title: 'Projects',
     value: '#projects',
     url: '#projects',
-    icon: <IoPaperPlane />,
+    icon: <IoCodeWorking />,
   },
   {
     title: 'Progress',
-    value: '#progress',
-    url: '#progress',
-    icon: <IoCodeWorking />,
+    value: '#journey',
+    url: '#journey',
+    icon: <IoBriefcaseOutline />,
   },
-  { title: 'Contact', value: '#contact', url: '#contact', icon: <IoPerson /> },
+  {
+    title: 'Contact',
+    value: '#contact',
+    url: '#contact',
+    icon: <IoChatbubbleEllipsesOutline />,
+  },
 ]

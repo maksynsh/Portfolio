@@ -26,8 +26,8 @@ export const PortfolioIcon = () => {
 
   return (
     <Confetti
-      className="w-fit select-none"
-      positionClassName="-right-9 -bottom-9 size-24 saturate-0 rotate-12 translate-y-0"
+      className="w-fit select-none pointer-events-auto"
+      positionClassName="-right-9 -bottom-9 size-24 saturate-0 rotate-12 translate-y-0 *:pointer-events-none"
       ref={lottieRef}
       speed={1.6}
       options={{

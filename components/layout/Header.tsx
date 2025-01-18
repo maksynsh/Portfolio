@@ -17,12 +17,12 @@ export const Header = () => {
         className="flex items-center justify-between flex-1 gap-2 max-w-7xl
           mx-auto"
       >
-        <div className="flex-1 pointer-events-auto">
+        <div className="flex-1">
           <PortfolioIcon />
         </div>
         <Navbar className="pointer-events-auto" navItems={navItems} />
-        <div className="flex-1 pointer-events-auto">
-          <div className="hidden sm:flex justify-end items-center gap-2">
+        <div className="flex-1 flex justify-end">
+          <div className="hidden sm:flex items-center gap-2 pointer-events-auto">
             <Button
               className="rounded-full"
               href="#"
