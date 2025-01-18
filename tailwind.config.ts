@@ -29,6 +29,10 @@ const config = {
       fontFamily: {
         body: ['NeueMontreal'],
       },
+      saturate: {
+        25: '.25',
+        75: '.75',
+      },
       spacing: {
         100: '25rem',
         120: '30rem',

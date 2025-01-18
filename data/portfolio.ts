@@ -8,9 +8,9 @@ export const aboutItems: BentoGridItemProps[] = [
     className: 'lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]',
     titleClassName: 'justify-end',
     img: {
-      src: '/assets/b1.svg',
+      src: '/assets/firewatch.webp',
       className:
-        'size-full group-hover/bento:blur-sm group-hover/bento:brightness-90 group-hover/bento:saturate-50 transition-all duration-300',
+        'size-full group-hover/bento:blur-sm group-hover/bento:brightness-90 group-hover/bento:saturate-75 transition-all duration-300',
     },
   },
   {

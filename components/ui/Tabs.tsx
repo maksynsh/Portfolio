@@ -87,7 +87,8 @@ export const Tabs = ({
       >
         {propTabs.map((tab, idx) => (
           <Button
-            key={tab.title}
+            key={tab.value}
+            aria-label={tab.title}
             href={tab.url}
             size="sm"
             variant="ghost"
@@ -96,8 +97,7 @@ export const Tabs = ({
             }}
             className={cn(
               `relative rounded-full focus:ring-0 focus:ring-offset-0
-              outline-none hover:bg-gradient-to-r from-slate-300/5
-              to-slate-500/5 overflow-visible`,
+              outline-none overflow-visible`,
               onlyIconsOnMobile && tab.icon
                 ? 'size-9 p-0 md:min-w-20'
                 : 'min-w-20',

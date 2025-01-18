@@ -30,6 +30,11 @@ export const Navbar = ({
   const [visible, setVisible] = useState(true)
 
   useMotionValueEvent(scrollYProgress, 'change', current => {
+    // Don't hide navbar on small screens
+    if (typeof window !== 'undefined' && window.innerWidth < 768) {
+      return
+    }
+
     // Check if current is not undefined and is a number
     if (typeof current === 'number') {
       const direction = current! - scrollYProgress.getPrevious()!
@@ -65,11 +70,7 @@ export const Navbar = ({
         transition={{
           duration: 0.2,
         }}
-        className={cn(
-          `flex max-w-fit fixed top-10 inset-x-0 mx-auto z-[5000] items-center
-          justify-center`,
-          className,
-        )}
+        className={cn('flex max-w-fit items-center justify-center', className)}
       >
         <Tabs
           tabs={navItems}

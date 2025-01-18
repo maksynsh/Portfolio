@@ -2,6 +2,7 @@ import '@/styles/globals.css'
 
 import type { Metadata } from 'next'
 
+import { Header } from '@/components/layout'
 import { ThemeProvider } from '@/store/providers'
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={'antialiased'}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <Header />
           <main
             className="relative dark:bg-black-100 flex justify-center
               items-center flex-col overflow-hidden mx-auto sm:px-10 px-5"

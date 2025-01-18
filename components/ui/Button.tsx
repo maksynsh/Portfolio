@@ -13,7 +13,8 @@ const buttonVariants = cva(
         default: 'bg-white text-black hover:bg-white/90',
         magic: '!rounded-xl !p-px disabled:!p-0 w-fit text-white',
         link: 'underline-offset-4 text-purple hover:text-glow hover:underline',
-        ghost: 'bg-transparent text-black dark:text-white',
+        ghost:
+          'bg-transparent text-black dark:text-white hover:bg-gradient-to-r from-slate-300/5 to-slate-500/5',
       },
       size: {
         default: 'h-10 rounded-lg px-4 py-2',
