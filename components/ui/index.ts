@@ -35,4 +35,5 @@ export * from './PinContainer'
 export * from './Spotlight'
 export * from './Tabs'
 export * from './TextRevealEffect'
+export * from './Timeline'
 //@endindex

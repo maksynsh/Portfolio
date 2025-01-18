@@ -59,8 +59,8 @@ export const BentoGridItem = ({
       as="article"
       id={id}
       className={cn(
-        `relative row-span-1 group/bento flex flex-col justify-between gap-4
-        select-none overflow-hidden`,
+        `relative shadow-lg row-span-1 group/bento flex flex-col justify-between
+        gap-4 select-none overflow-hidden`,
         className,
       )}
     >

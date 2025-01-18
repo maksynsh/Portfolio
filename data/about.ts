@@ -6,7 +6,7 @@ export const aboutItems: BentoGridItemProps[] = [
     title: 'I prioritize client collaboration, fostering open communication',
     description: '',
     className: 'lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]',
-    titleClassName: 'justify-end',
+    titleClassName: 'justify-end text-white',
     img: {
       src: '/assets/firewatch.webp',
       className:
@@ -56,7 +56,8 @@ export const aboutItems: BentoGridItemProps[] = [
     title: 'Do you want to bring an idea to life?',
     description: '',
     className: 'lg:col-span-2 md:col-span-3 md:row-span-1',
-    titleClassName: 'justify-center md:max-w-full max-w-60 text-center',
+    titleClassName:
+      'text-white justify-center md:max-w-full max-w-60 text-center',
     extensions: [
       'centeredContent',
       'backgroundGradientAnimation',

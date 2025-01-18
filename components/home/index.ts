@@ -27,4 +27,5 @@
 export * from './About'
 export * from './Hero'
 export * from './Highlights'
+export * from './Journey'
 //@endindex

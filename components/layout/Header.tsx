@@ -9,7 +9,8 @@ export const Header = () => {
   return (
     <header
       className="fixed top-0 inset-x-0 pointer-events-none z-[1000]
-        bg-gradient-to-b from-black/60 pt-6 md:pt-10 px-5 sm:px-10"
+        bg-gradient-to-b from-blue-950/30 dark:from-black/60 pt-6 md:pt-10 px-5
+        sm:px-10"
     >
       <div
         className="flex items-center justify-between flex-1 gap-2 max-w-7xl

@@ -24,7 +24,7 @@ export const Paper: FC<PaperProps> = ({
       className={cn(
         `rounded-3xl hover:shadow-xl transition duration-200 shadow-input
         dark:shadow-none bg-white dark:card-dark-gradient border
-        border-transparent dark:border-white/10 drop-shadow-none`,
+        border-transparent dark:border-white/10`,
         className,
       )}
       style={style}
