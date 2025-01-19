@@ -14,11 +14,11 @@ const buttonVariants = cva(
         magic: '!rounded-xl !p-px disabled:!p-0 w-fit text-white',
         link: 'underline-offset-4 text-purple hover:text-glow hover:underline',
         ghost:
-          'bg-transparent text-black dark:text-white hover:bg-gradient-to-r from-slate-300/5 to-slate-500/5',
+          'text-black dark:text-white hover:bg-gradient-to-r from-slate-300/[0.07] to-slate-500/[0.07]',
       },
       size: {
-        default: 'h-10 rounded-lg px-4 py-2',
-        sm: 'h-9 text-sm rounded-lg px-2',
+        default: 'h-10 rounded-lg px-4 py-3',
+        sm: 'h-9 text-sm rounded-lg px-3',
         lg: 'h-11 rounded-xl px-4',
         xl: 'h-14 text-lg rounded-xl px-12',
         link: 'h-fit px-1',

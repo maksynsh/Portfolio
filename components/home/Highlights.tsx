@@ -17,7 +17,7 @@ export const Highlights = () => {
         className="flex flex-wrap items-center justify-center p-4 gap-x-24
           gap-y-8"
       >
-        {projects.map(({ id, title, des, iconLists, img, link }) => (
+        {projects.map(({ id, title, description, iconLists, img, link }) => (
           <li
             key={id}
             className="flex items-center justify-center lg:min-h-130 h-100
@@ -39,7 +39,9 @@ export const Highlights = () => {
                 <img
                   src={img}
                   alt={title}
-                  className="absolute z-10 bottom-0"
+                  className="absolute z-10 sm:-bottom-16 scale-90 sm:scale-[84%]
+                    antialiased rounded-3xl rotate-[5deg] shadow border
+                    border-white/5 brightness-95"
                   loading="lazy"
                 />
               </Paper>
@@ -55,7 +57,7 @@ export const Highlights = () => {
                 className="text-slate-400 text-sm md:text-base lg:text-lg
                   font-light lg:font-medium line-clamp-2"
               >
-                {des}
+                {description}
               </p>
 
               <div className="flex items-center justify-between mt-5 mb-2">

@@ -1,9 +1,10 @@
 export const projects = [
   {
     id: 1,
-    title: '3D Solar System Planets to Explore',
-    des: 'Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.',
-    img: '/assets/p1.svg',
+    title: 'Sewan France - Telephony',
+    description:
+      'With Sewan`s Sophia, you take control and manage all your services: communication and collaboration tools.',
+    img: '/images/projects/sewan.png',
     iconLists: [
       '/assets/re.svg',
       '/assets/tail.svg',
@@ -11,13 +12,14 @@ export const projects = [
       '/assets/three.svg',
       '/assets/fm.svg',
     ],
-    link: 'https://github.com/adrianhajdin?tab=repositories',
+    link: 'https://www.sewan.fr/fr-fr/',
   },
   {
     id: 2,
-    title: 'Yoom - Video Conferencing App',
-    des: 'Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.',
-    img: '/assets/p2.svg',
+    title: 'DreamFlare AI',
+    description:
+      'The Premiere Experience for The Best GenAI content and creators.',
+    img: '/images/projects/dreamflare.png',
     iconLists: [
       '/assets/next.svg',
       '/assets/tail.svg',
@@ -25,13 +27,14 @@ export const projects = [
       '/assets/stream.svg',
       '/assets/c.svg',
     ],
-    link: 'https://github.com/adrianhajdin/zoom-clone',
+    link: 'https://www.dreamflare.ai/',
   },
   {
     id: 3,
-    title: 'AI Image SaaS - Canva Application',
-    des: 'A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.',
-    img: '/assets/p3.svg',
+    title: 'Tropicana - Ladning Page',
+    description:
+      'This project is just a design variant implementation. A simple yet good rethinking of the Tropicana`s official landing page.',
+    img: '/images/projects/tropicana.png',
     iconLists: [
       '/assets/re.svg',
       '/assets/tail.svg',
@@ -39,13 +42,14 @@ export const projects = [
       '/assets/three.svg',
       '/assets/c.svg',
     ],
-    link: 'https://github.com/adrianhajdin/ai_saas_app',
+    link: 'https://tropicana-ui.netlify.app/',
   },
   {
     id: 4,
-    title: 'Animated Apple Iphone 3D Website',
-    des: 'Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..',
-    img: '/assets/p4.svg',
+    title: 'EPP - Internal Social Network',
+    description:
+      'Built internal social network infrastructure and application for the European People`s Party.',
+    img: '/images/projects/epp.png',
     iconLists: [
       '/assets/next.svg',
       '/assets/tail.svg',
@@ -53,6 +57,6 @@ export const projects = [
       '/assets/three.svg',
       '/assets/gsap.svg',
     ],
-    link: 'https://github.com/adrianhajdin/iphone',
+    link: 'https://www.epp.eu/',
   },
 ]
