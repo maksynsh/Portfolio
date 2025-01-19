@@ -50,6 +50,7 @@ export const PortfolioIcon = () => {
         className="relative z-10 size-12 shadow-lg border-[3px] rounded-md
           overflow-hidden border-slate-900 dark:border-purple cursor-pointer"
         onClick={toNextImage}
+        aria-label="Max Sharinov - Web Engineer"
       >
         {images.map(({ src, alt }, i) => (
           <img
