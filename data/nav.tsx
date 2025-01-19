@@ -16,7 +16,7 @@ export const navItems: NavItem[] = [
     icon: <IoCodeWorking />,
   },
   {
-    title: 'Progress',
+    title: 'Journey',
     value: '#journey',
     url: '#journey',
     icon: <IoBriefcaseOutline />,

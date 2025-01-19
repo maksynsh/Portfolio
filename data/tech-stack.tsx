@@ -22,11 +22,14 @@ type TechnologyKey =
   | 'typescript'
   | 'html'
   | 'css'
+  | 'scss'
   | 'graph'
   | 'node'
   | 'nest'
   | 'docker'
   | 'mongo'
+  | 'cisco'
+  | 'python'
 
 export const TECHNOLOGIES: Record<TechnologyKey, Technology> = Object.freeze({
   react: {
@@ -56,6 +59,10 @@ export const TECHNOLOGIES: Record<TechnologyKey, Technology> = Object.freeze({
   astro: {
     title: 'Astro.js',
     img: '/images/tech/astro.svg',
+  },
+  scss: {
+    title: 'SCSS',
+    img: '/images/tech/scss.svg',
   },
   framer: {
     title: 'Framer Motion',
@@ -106,6 +113,15 @@ export const TECHNOLOGIES: Record<TechnologyKey, Technology> = Object.freeze({
     title: 'GraphQL',
     img: '/images/tech/graphql.svg',
   },
+  python: {
+    title: 'Python',
+    img: '/images/tech/python.svg',
+  },
+  cisco: {
+    title: 'Cisco',
+    img: '/images/tech/cisco.svg',
+    imgTitle: '/images/tech/ciscoName.svg',
+  },
 } as const)
 
 const {
@@ -122,12 +138,14 @@ const {
   javascript,
   html,
   css,
+  scss,
   framer,
   graph,
   gsap,
   styled,
   tailwind,
   three,
+  cisco,
 } = TECHNOLOGIES
 
 export const techStackPartial = {
@@ -149,7 +167,8 @@ export const techStackFull = {
     gsap,
     styled,
     tailwind,
+    scss,
     three,
   ],
-  back: [typescript, node, nest, mongo, docker, graph],
+  back: [typescript, node, nest, mongo, docker, graph, cisco],
 }

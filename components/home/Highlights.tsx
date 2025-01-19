@@ -35,7 +35,7 @@ export const Highlights = () => {
                     className="relative size-full overflow-hidden
                       lg:rounded-3xl"
                   >
-                    <img src="/assets/bg.png" alt="Background image" />
+                    <img src="/images/bg/bg.png" alt="Background image" />
                   </div>
 
                   <img
