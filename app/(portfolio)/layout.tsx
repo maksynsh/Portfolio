@@ -6,7 +6,7 @@ import { Header } from '@/components/layout'
 import { ThemeProvider } from '@/store/providers'
 
 export const metadata: Metadata = {
-  title: 'Max – Web Developer',
+  title: 'Max – Web Engineer',
   description:
     'Professional in crafting dynamic, user-focused web experiences using modern technologies. This is my portfolio.',
 }

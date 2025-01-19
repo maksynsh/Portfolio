@@ -65,7 +65,7 @@ export const Hero = () => {
             className="text-center text-sm md:text-lg lg:text-2xl tracking-wider
               mb-4 text-glow"
           >
-            Hi, I&apos;m Max, a Web Developer based in Ukraine.
+            Hi, I&apos;m Max, a Web Engineer based in Ukraine.
           </h2>
 
           <Button

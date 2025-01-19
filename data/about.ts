@@ -8,7 +8,7 @@ export const aboutItems: BentoGridItemProps[] = [
     className: 'lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[60vh]',
     titleClassName: 'justify-end text-white',
     img: {
-      src: '/assets/firewatch.webp',
+      src: '/images/bg/firewatch.webp',
       className:
         'size-full group-hover/bento:blur-sm group-hover/bento:brightness-90 group-hover/bento:saturate-75 transition-all duration-300',
     },
@@ -35,8 +35,8 @@ export const aboutItems: BentoGridItemProps[] = [
     description: '',
     className: 'lg:col-span-2 md:col-span-3 md:row-span-1',
     titleClassName: 'justify-start',
-    img: { src: '/assets/grid.svg' },
-    spareImg: { src: '/assets/b4.svg' },
+    img: { src: '/images/bg/grid.svg' },
+    spareImg: { src: '/images/bg/b4.svg' },
   },
 
   {
@@ -46,10 +46,10 @@ export const aboutItems: BentoGridItemProps[] = [
     className: 'md:col-span-3 md:row-span-2',
     titleClassName: 'justify-center md:justify-start lg:justify-center',
     img: {
-      src: '/assets/b5.svg',
+      src: '/images/bg/b5.svg',
       className: 'absolute right-0 bottom-0 md:w-96 w-60',
     },
-    spareImg: { src: '/assets/grid.svg', className: 'w-full opacity-80' },
+    spareImg: { src: '/images/bg/grid.svg', className: 'w-full opacity-80' },
   },
   {
     id: 'about-item-6',

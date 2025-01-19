@@ -1,3 +1,5 @@
+import { TECHNOLOGIES } from './tech-stack'
+
 export const projects = [
   {
     id: 1,
@@ -5,12 +7,13 @@ export const projects = [
     description:
       'With Sewan`s Sophia, you take control and manage all your services: communication and collaboration tools.',
     img: '/images/projects/sewan.png',
-    iconLists: [
-      '/assets/re.svg',
-      '/assets/tail.svg',
-      '/assets/ts.svg',
-      '/assets/three.svg',
-      '/assets/fm.svg',
+    technologiesUsed: [
+      TECHNOLOGIES.reactNative,
+      TECHNOLOGIES.next,
+      TECHNOLOGIES.tailwind,
+      TECHNOLOGIES.typescript,
+      TECHNOLOGIES.three,
+      TECHNOLOGIES.gsap,
     ],
     link: 'https://www.sewan.fr/fr-fr/',
   },
@@ -18,14 +21,15 @@ export const projects = [
     id: 2,
     title: 'DreamFlare AI',
     description:
-      'The Premiere Experience for The Best GenAI content and creators.',
+      'The Premiere Experience for The Best GenAI content and creators. Distinctive feature: interactive videos (Spins).',
     img: '/images/projects/dreamflare.png',
-    iconLists: [
-      '/assets/next.svg',
-      '/assets/tail.svg',
-      '/assets/ts.svg',
-      '/assets/stream.svg',
-      '/assets/c.svg',
+    technologiesUsed: [
+      TECHNOLOGIES.reactNative,
+      TECHNOLOGIES.next,
+      TECHNOLOGIES.tailwind,
+      TECHNOLOGIES.typescript,
+      TECHNOLOGIES.three,
+      TECHNOLOGIES.gsap,
     ],
     link: 'https://www.dreamflare.ai/',
   },
@@ -35,12 +39,13 @@ export const projects = [
     description:
       'This project is just a design variant implementation. A simple yet good rethinking of the Tropicana`s official landing page.',
     img: '/images/projects/tropicana.png',
-    iconLists: [
-      '/assets/re.svg',
-      '/assets/tail.svg',
-      '/assets/ts.svg',
-      '/assets/three.svg',
-      '/assets/c.svg',
+    technologiesUsed: [
+      TECHNOLOGIES.reactNative,
+      TECHNOLOGIES.next,
+      TECHNOLOGIES.tailwind,
+      TECHNOLOGIES.typescript,
+      TECHNOLOGIES.three,
+      TECHNOLOGIES.gsap,
     ],
     link: 'https://tropicana-ui.netlify.app/',
   },
@@ -50,12 +55,13 @@ export const projects = [
     description:
       'Built internal social network infrastructure and application for the European People`s Party.',
     img: '/images/projects/epp.png',
-    iconLists: [
-      '/assets/next.svg',
-      '/assets/tail.svg',
-      '/assets/ts.svg',
-      '/assets/three.svg',
-      '/assets/gsap.svg',
+    technologiesUsed: [
+      TECHNOLOGIES.reactNative,
+      TECHNOLOGIES.next,
+      TECHNOLOGIES.tailwind,
+      TECHNOLOGIES.typescript,
+      TECHNOLOGIES.three,
+      TECHNOLOGIES.gsap,
     ],
     link: 'https://www.epp.eu/',
   },
