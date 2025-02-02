@@ -15,6 +15,7 @@ const buttonVariants = cva(
         link: 'underline-offset-4 text-purple hover:text-glow hover:underline',
         ghost:
           'text-black dark:text-white hover:bg-gradient-to-r from-slate-300/[0.07] to-slate-500/[0.07]',
+        icon: 'rounded-full backdrop-blur-lg saturate-[1.8] border border-white/20 aspect-square hover:saturate-75',
       },
       size: {
         default: 'h-10 rounded-lg px-4 py-3',
@@ -22,6 +23,7 @@ const buttonVariants = cva(
         lg: 'h-11 rounded-xl px-4',
         xl: 'h-14 text-lg rounded-xl px-12',
         link: 'h-fit px-1',
+        icon: 'size-11 px-0 py-0',
       },
     },
     defaultVariants: {

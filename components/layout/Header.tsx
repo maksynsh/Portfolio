@@ -1,5 +1,6 @@
 import { IoArrowForward } from 'react-icons/io5'
 
+import { LINKS } from '@/data/contacts'
 import { navItems } from '@/data/nav'
 
 import { Button } from '../ui'
@@ -25,23 +26,23 @@ export const Header = () => {
           <div className="hidden sm:flex items-center gap-2 pointer-events-auto">
             <Button
               className="rounded-full"
-              href="#"
+              href={LINKS.LINKEDIN.url}
               size="sm"
               variant="ghost"
               icon={<IoArrowForward className="-rotate-45" />}
               iconPosition="right"
             >
-              LinkedIn
+              {LINKS.LINKEDIN.name}
             </Button>
             <Button
               className="rounded-full"
-              href="#"
+              href={LINKS.CV.url}
               size="sm"
               variant="ghost"
               icon={<IoArrowForward className="-rotate-45" />}
               iconPosition="right"
             >
-              Resume
+              {LINKS.CV.name}
             </Button>
           </div>
         </div>

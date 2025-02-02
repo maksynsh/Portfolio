@@ -70,7 +70,7 @@ export const Card = ({
 
       <div
         className="max-md:group-hover/canvas-card:opacity-0
-          group-hover/canvas-card:-translate-y-36 transition-all duration-200
+          group-hover/canvas-card:-translate-y-40 transition-all duration-200
           w-fit absolute top-24 md:top-1/2 left-1/2 -translate-x-1/2"
       >
         {tag && (

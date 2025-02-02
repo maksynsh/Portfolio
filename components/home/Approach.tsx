@@ -31,7 +31,7 @@ export const Approach = () => {
         <Card
           className="cursor-pointer"
           title="Development"
-          description="After discussing an idea dasdasdasdasdasdasdasdin detail, we conduct research, estimate possible risks and carefully think about the approach we are going to use."
+          description="During this stage, I bring the project to life by writing clean, efficient code and leveragin the best technologies."
           tag="Step 2"
           img="/images/misc/exp1.svg"
         >
@@ -53,7 +53,7 @@ export const Approach = () => {
         <Card
           className="cursor-pointer"
           title="Testing & Launch"
-          description="After discussing an idea in detail, we conduct research, estimate possible risks and carefully think about the approach we are going to use."
+          description="Before launching, I rigorously test all functionalities to identify and resolve any issues, ensuring a perfect final product."
           tag="Step 3"
           img="/images/misc/exp2.svg"
         >
