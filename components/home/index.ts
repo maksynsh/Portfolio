@@ -25,6 +25,7 @@
 
 //@index('./*.tsx', f => `export * from '${f.path}'`)
 export * from './About'
+export * from './Approach'
 export * from './Hero'
 export * from './Highlights'
 export * from './Journey'

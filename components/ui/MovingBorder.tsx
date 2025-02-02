@@ -14,7 +14,7 @@ import { cn } from '@/utils'
 export function MovingBorder({
   borderRadius = '1.75rem',
   children,
-  as: Component = 'article',
+  as: Component = 'button',
   containerClassName,
   borderClassName,
   duration,
@@ -23,7 +23,7 @@ export function MovingBorder({
 }: {
   borderRadius?: string
   children: React.ReactNode
-  as?: 'article' | 'section' | 'div'
+  as?: any
   containerClassName?: string
   borderClassName?: string
   duration?: number
@@ -33,7 +33,9 @@ export function MovingBorder({
   return (
     <Component
       className={cn(
-        'bg-transparent relative text-xl h-16 w-40 p-[1px] overflow-hidden ',
+        // remove h-16 w-40, add  md:col-span-2
+        `bg-transparent relative text-xl p-[1px] overflow-hidden md:col-span-2
+        md:row-span-1`,
         containerClassName,
       )}
       style={{
@@ -42,14 +44,14 @@ export function MovingBorder({
       {...otherProps}
     >
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 rounde-[1.75rem]"
         style={{ borderRadius: `calc(${borderRadius} * 0.96)` }}
       >
         <BorderAnimation duration={duration} rx="30%" ry="30%">
           <div
             className={cn(
               `h-20 w-20 opacity-[0.8]
-              bg-[radial-gradient(var(--sky-500)_40%,transparent_60%)]`,
+              bg-[radial-gradient(#CBACF9_40%,transparent_60%)]`,
               borderClassName,
             )}
           />
@@ -58,7 +60,7 @@ export function MovingBorder({
 
       <div
         className={cn(
-          `relative bg-slate-900/[0.8] border border-slate-800 backdrop-blur-xl
+          `relative bg-slate-900/[0.] border border-slate-800 backdrop-blur-xl
           text-white flex items-center justify-center w-full h-full text-sm
           antialiased`,
           className,
@@ -73,7 +75,7 @@ export function MovingBorder({
   )
 }
 
-const BorderAnimation = ({
+export const BorderAnimation = ({
   children,
   duration = 2000,
   rx,

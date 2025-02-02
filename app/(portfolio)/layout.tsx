@@ -2,7 +2,7 @@ import '@/styles/globals.css'
 
 import type { Metadata } from 'next'
 
-import { Header } from '@/components/layout'
+import { Footer, Header } from '@/components/layout'
 import { ThemeProvider } from '@/store/providers'
 
 export const metadata: Metadata = {
@@ -27,6 +27,7 @@ export default function RootLayout({
           >
             {children}
           </main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

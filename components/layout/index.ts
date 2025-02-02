@@ -24,6 +24,7 @@
 //@endindex
 
 //@index('./*.tsx', f => `export * from '${f.path}'`)
+export * from './Footer'
 export * from './Header'
 export * from './Navbar'
 export * from './PortfolioIcon'
