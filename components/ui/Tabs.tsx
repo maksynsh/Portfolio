@@ -16,6 +16,7 @@ type Tab = {
 
 export const Tabs = ({
   tabs: propTabs,
+  activeTab,
   defaultTab,
   containerClassName,
   activeTabClassName,
@@ -23,19 +24,28 @@ export const Tabs = ({
   onlyIconsOnMobile,
 }: {
   tabs: Tab[]
+  activeTab?: Tab
   defaultTab?: Tab
   containerClassName?: string
   activeTabClassName?: string
   tabClassName?: string
   onlyIconsOnMobile?: boolean
 }) => {
-  const [active, setActive] = useState<Tab | undefined>(defaultTab)
+  const [active, setActive] = useState<Tab | undefined>(activeTab ?? defaultTab)
   const containerRef = useRef<HTMLDivElement>(null)
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0 })
 
   const selectTab = (idx: number) => {
     setActive(propTabs[idx])
   }
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setActive(activeTab)
+    }, 300)
+
+    return () => clearTimeout(handler)
+  }, [activeTab])
 
   useEffect(() => {
     if (containerRef.current && active) {
@@ -56,11 +66,6 @@ export const Tabs = ({
 
   return (
     <div className="relative">
-      {/* <div
-        id="glow-indicator"
-        className="h-1 w-3/5 -mb-0.5 bg-gray-100 rounded
-          shadow-[0_3px_21px_3px_#fff] mx-auto"
-      ></div> */}
       <motion.div
         id="glow-indicator"
         className={cn(

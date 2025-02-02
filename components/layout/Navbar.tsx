@@ -19,15 +19,50 @@ export const Navbar = ({
   navItems: NavItem[]
   className?: string
 }) => {
-  const [defaultTab, setDefaultTab] = useState(navItems[0])
+  const [activeTab, setActiveTab] = useState(navItems[0])
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setDefaultTab(
+      setActiveTab(
         navItems.find(tab => tab.url === window.location.hash) ?? navItems[0],
       )
     }
-  }, [])
+
+    const sections = navItems
+      .map(item => document.getElementById(item.url.replace('#', '')))
+      .filter(section => section !== null) as HTMLElement[]
+
+    if (sections.length === 0) return
+
+    const observer = new IntersectionObserver(
+      entries => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id')
+            if (id) {
+              const matchedTab = navItems.find(tab => tab.url === `#${id}`)
+              if (matchedTab) {
+                console.log(matchedTab.title)
+                setActiveTab(matchedTab)
+                window.history.replaceState(null, '', `#${id}`)
+              }
+            }
+          }
+        }
+      },
+      {
+        root: null,
+        rootMargin: '-50% 0px -50% 0px',
+        threshold: 0,
+      },
+    )
+
+    sections.forEach(section => observer.observe(section))
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [navItems])
 
   return (
     <nav
@@ -35,7 +70,8 @@ export const Navbar = ({
     >
       <Tabs
         tabs={navItems}
-        defaultTab={defaultTab}
+        activeTab={activeTab}
+        defaultTab={activeTab}
         containerClassName={`bg-gray-400/5 saturate-50 hover:brightness-110 transition-all 
             backdrop-blur-xl border border-white/10 rounded-full p-1.5 shadow-md gap-2`}
         activeTabClassName="bg-gray-500/10 dark:bg-gray-700/20"
