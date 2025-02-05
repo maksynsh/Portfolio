@@ -13,31 +13,28 @@ export const Footer = () => {
         />
       </div>
 
-      <div className="flex justify-between max-w-7xl w-full sm:px-10 px-5 gap-4">
+      <div
+        className="flex justify-between max-w-7xl w-full mx-auto sm:px-10 px-5
+          gap-4"
+      >
         <div className="space-y-2">
           <p className="text-sm sm:text-base">
             © {new Date().getFullYear()} Maksym Sharinov. All Rights Reserved.
           </p>
-          <span className="text-gray-700 dark:text-blue-100 text-xs sm:text-sm">
+          <span className="text-gray-950 dark:text-gray-300 text-xs sm:text-sm">
             Made with love and Green Tea (no sugar).
           </span>
         </div>
         <ul className="flex gap-4">
-          <li>
-            <Button href={LINKS.LINKEDIN.url} size="icon" variant="icon">
-              <LINKS.LINKEDIN.icon className="size-5" />
-            </Button>
-          </li>
-          <li>
-            <Button href={LINKS.CV.url} size="icon" variant="icon">
-              <LINKS.CV.icon className="size-5" />
-            </Button>
-          </li>
-          <li className="hidden md:block">
-            <Button href={LINKS.EMAIL.url} size="icon" variant="icon">
-              <LINKS.EMAIL.icon className="size-5" />
-            </Button>
-          </li>
+          {[LINKS.LINKEDIN, LINKS.CV, LINKS.EMAIL].map(
+            ({ url, icon: Icon }) => (
+              <li key={url}>
+                <Button href={url} size="icon" variant="icon">
+                  <Icon className="size-5" />
+                </Button>
+              </li>
+            ),
+          )}
         </ul>
       </div>
     </footer>

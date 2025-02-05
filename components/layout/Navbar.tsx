@@ -1,5 +1,5 @@
 'use client'
-import { ReactNode, useEffect, useState } from 'react'
+import { ReactNode, useEffect, useRef, useState } from 'react'
 
 import { cn } from '@/utils'
 
@@ -20,6 +20,8 @@ export const Navbar = ({
   className?: string
 }) => {
   const [activeTab, setActiveTab] = useState(navItems[0])
+
+  const handler = useRef<NodeJS.Timeout>(null)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -42,9 +44,14 @@ export const Navbar = ({
             if (id) {
               const matchedTab = navItems.find(tab => tab.url === `#${id}`)
               if (matchedTab) {
-                console.log(matchedTab.title)
-                setActiveTab(matchedTab)
-                window.history.replaceState(null, '', `#${id}`)
+                if (handler.current) {
+                  clearTimeout(handler.current)
+                }
+
+                handler.current = setTimeout(() => {
+                  setActiveTab(matchedTab)
+                  window.history.replaceState(null, '', `#${id}`)
+                }, 400)
               }
             }
           }

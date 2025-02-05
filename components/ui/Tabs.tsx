@@ -40,11 +40,11 @@ export const Tabs = ({
   }
 
   useEffect(() => {
-    const handler = setTimeout(() => {
-      setActive(activeTab)
-    }, 300)
+    setActive(activeTab)
+    // const handler = setTimeout(() => {
+    // }, 400)
 
-    return () => clearTimeout(handler)
+    // return () => clearTimeout(handler)
   }, [activeTab])
 
   useEffect(() => {
