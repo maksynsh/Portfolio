@@ -1,6 +1,8 @@
 'use client'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
+import { FcCursor } from 'react-icons/fc'
+import { PiHandTap } from 'react-icons/pi'
 
 import { cn } from '@/utils'
 
@@ -90,6 +92,16 @@ export const Card = ({
             {tag}
           </MovingBorder>
         )}
+        <FcCursor
+          className="absolute -right-5 -bottom-7 size-8
+            group-hover/canvas-card:opacity-0 transition duration-150 hidden
+            md:block"
+        />
+        <PiHandTap
+          className="absolute -right-7 -bottom-9 size-7 text-gray-100
+            dark:text-purple -rotate-12 group-hover/canvas-card:opacity-0
+            transition duration-150 md:hidden"
+        />
       </div>
 
       <div className="relative z-20">
@@ -100,7 +112,7 @@ export const Card = ({
             text-center space-y-2"
         >
           <h3 className="text-2xl md:text-3xl font-bold text-glow">{title}</h3>
-          <p className="text-gray-700 dark:text-blue-100 text-sm md:text-base">
+          <p className="text-grey-300 dark:text-blue-100 text-sm md:text-base">
             {description}
           </p>
         </div>

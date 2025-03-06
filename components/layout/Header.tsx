@@ -21,7 +21,9 @@ export const Header = () => {
         <div className="flex-1">
           <PortfolioIcon />
         </div>
+
         <Navbar className="pointer-events-auto" navItems={navItems} />
+
         <div className="flex-1 flex justify-end">
           <div className="hidden sm:flex items-center gap-2 pointer-events-auto">
             <Button

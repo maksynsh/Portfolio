@@ -10,7 +10,9 @@ export const Contact = () => {
       id="contact"
       className="relative z-20 py-20 flex flex-col items-center"
     >
-      <h2 className="font-semibold tracking-wide text-4xl md:text-5xl">
+      <h2
+        className="text-center font-semibold tracking-wide text-4xl md:text-5xl"
+      >
         Ready to take <span className="text-purple">the next step?</span>
       </h2>
       <p className="text-gray-700 dark:text-blue-100 text-center my-5 max-w-sm">

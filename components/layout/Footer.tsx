@@ -4,7 +4,7 @@ import { Button } from '../ui'
 
 export const Footer = () => {
   return (
-    <footer className="relative w-full py-10 bg-black-100">
+    <footer className="relative w-full py-10 dark:bg-black-100">
       <div className="absolute bottom-0 inset-x-0 h-150 pointer-events-none">
         <img
           className="size-full opacity-60 object-top object-cover"
@@ -22,7 +22,7 @@ export const Footer = () => {
             © {new Date().getFullYear()} Maksym Sharinov. All Rights Reserved.
           </p>
           <span className="text-gray-950 dark:text-gray-300 text-xs sm:text-sm">
-            Made with love and Green Tea (no sugar).
+            Made with sandwich and green tea (no sugar).
           </span>
         </div>
         <ul className="flex gap-4">

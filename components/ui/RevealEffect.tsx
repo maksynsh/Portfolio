@@ -1,7 +1,7 @@
 'use client'
-// @ts-expect-error ts support
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import React, { useMemo, useRef } from 'react'
+// @ts-expect-error ts support
 import * as THREE from 'three'
 
 import { cn } from '@/utils'

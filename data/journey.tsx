@@ -1,3 +1,5 @@
+import { TbHandTwoFingers } from 'react-icons/tb'
+
 import { JourneyItemProps } from '@/components/home'
 
 interface TimePoint {
@@ -70,12 +72,21 @@ export const journey: TimePoint[] = [
       description: `While studying and making my own pet-projects I started working on multiple
             projects as a freelancer:`,
       children: (
-        <ul className="text-gray-950 dark:text-gray-300 text-sm md:text-base">
-          <li>✅ New Features</li>
-          <li>✅ Tracing Bugs</li>
-          <li>✅ Business</li>
-          <li>✅ E-commerce</li>
-          <li>✅ Deployment</li>
+        <ul
+          className="text-gray-950 dark:text-gray-300 text-sm md:text-base
+            space-y-1"
+        >
+          {[
+            'New Features',
+            'Tracing Bugs',
+            'Business',
+            'E-commerce',
+            'Deployment',
+          ].map(str => (
+            <li key={str} className="flex items-center gap-2">
+              <TbHandTwoFingers className="rotate-90 size-6" /> {str}
+            </li>
+          ))}
         </ul>
       ),
     },

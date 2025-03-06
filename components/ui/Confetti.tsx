@@ -1,10 +1,15 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import { ReactNode, Ref } from 'react'
-import Lottie, { LottieProps, Options } from 'react-lottie'
+import type { LottieProps, Options } from 'react-lottie'
 
 import animationData from '@/data/mini-confetti.json'
 import { cn } from '@/utils'
+
+const Lottie = dynamic(() => import('react-lottie'), {
+  ssr: false,
+})
 
 interface ConfettiProps extends Omit<LottieProps, 'options'> {
   ref?: Ref<any>

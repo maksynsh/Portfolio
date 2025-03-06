@@ -16,11 +16,15 @@ export const PortfolioIcon = () => {
   const lottieRef = useRef<any>(null)
   const [index, setIndex] = useState<number>(0)
 
-  const toNextImage = () => {
+  const handleClick = () => {
     setIndex(prev => (images[prev + 1] ? prev + 1 : 0))
     if (lottieRef.current) {
       lottieRef.current.stop()
       lottieRef.current.play()
+    }
+
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0 })
     }
   }
 
@@ -47,9 +51,9 @@ export const PortfolioIcon = () => {
           animationDuration: '100ms',
           type: 'spring',
         }}
-        className="relative z-10 size-12 shadow-lg border-[3px] rounded-md
+        className="relative z-10 size-12 shadow-lg border-[2.5px] rounded-md
           overflow-hidden border-slate-900 dark:border-purple cursor-pointer"
-        onClick={toNextImage}
+        onClick={handleClick}
         aria-label="Max Sharinov - Web Engineer"
       >
         {images.map(({ src, alt }, i) => (

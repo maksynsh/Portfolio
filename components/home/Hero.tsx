@@ -56,7 +56,7 @@ export const Hero = () => {
             as="h1"
             className="text-center text-4xl md:text-5xl lg:text-6xl"
             defaultWordsClassName="bg-clip-text text-transparent bg-gradient-to-b
-                    from-slate-50/90 via-slate-300/90 to-slate-500/80 bg-opacity-50"
+                    from-[#859398]/70 via-[#859398] to-[#283048] dark:from-slate-50/90 dark:via-slate-300/90 dark:to-slate-500/80 bg-opacity-50"
             words="Turning visions into Flawless Interactions 🚀"
             paintedWordsIndexes={[3, 4]}
             paintedWordsVariant="purpleGradient"

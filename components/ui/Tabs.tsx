@@ -14,6 +14,11 @@ type Tab = {
   icon?: ReactNode
 }
 
+const DARK_BOX_SHADOW =
+  '0 0 17px 6px rgba(255, 255, 255, 0.45), 0 0 34px 12px rgba(255, 255, 255, 0.3)'
+const LIGHT_BOX_SHADOW =
+  '0 0 17px 6px rgba(203, 172, 249, 0.75), 0 0 34px 12px rgba(203, 172, 249, 0.58)'
+
 export const Tabs = ({
   tabs: propTabs,
   activeTab,
@@ -33,18 +38,26 @@ export const Tabs = ({
 }) => {
   const [active, setActive] = useState<Tab | undefined>(activeTab ?? defaultTab)
   const containerRef = useRef<HTMLDivElement>(null)
-  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0 })
+  const [indicatorStyle, setIndicatorStyle] = useState({
+    left: 0,
+    boxShadow: DARK_BOX_SHADOW,
+  })
 
   const selectTab = (idx: number) => {
     setActive(propTabs[idx])
   }
 
   useEffect(() => {
-    setActive(activeTab)
-    // const handler = setTimeout(() => {
-    // }, 400)
+    setIndicatorStyle(prev => ({
+      ...prev,
+      boxShadow: document.documentElement.classList.contains('dark')
+        ? DARK_BOX_SHADOW
+        : LIGHT_BOX_SHADOW,
+    }))
+  }, [])
 
-    // return () => clearTimeout(handler)
+  useEffect(() => {
+    setActive(activeTab)
   }, [activeTab])
 
   useEffect(() => {
@@ -57,9 +70,10 @@ export const Tabs = ({
 
       if (activeButton && glowIndicator) {
         const { offsetLeft, offsetWidth } = activeButton
-        setIndicatorStyle({
+        setIndicatorStyle(prev => ({
+          ...prev,
           left: offsetLeft + offsetWidth / 2 - glowIndicator.offsetWidth / 2,
-        })
+        }))
       }
     }
   }, [active, propTabs])
@@ -74,8 +88,7 @@ export const Tabs = ({
           absolute -top-0.5`,
         )}
         style={{
-          boxShadow:
-            '0 0 17px 6px rgba(255, 255, 255, 0.45), 0 0 34px 12px rgba(255, 255, 255, 0.3)',
+          boxShadow: indicatorStyle.boxShadow,
         }}
         layoutId="glowIndicator"
         animate={{ left: indicatorStyle.left }}
