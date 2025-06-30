@@ -36,7 +36,7 @@ export const projects = [
     id: 3,
     title: 'Tropicana - Ladning Page',
     description:
-      'This project is just a design variant implementation. A simple yet good rethinking of the Tropicana`s official landing page.',
+      'One of my first pet projects ever. A simple yet nice rethinking of the official landing page.',
     img: '/images/projects/tropicana.png',
     technologiesUsed: [
       TECHNOLOGIES.html,

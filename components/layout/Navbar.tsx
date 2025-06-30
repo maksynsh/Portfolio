@@ -36,6 +36,7 @@ export const Navbar = ({
 
     if (sections.length === 0) return
 
+    // TODO: fix wrong behavior
     const observer = new IntersectionObserver(
       entries => {
         for (const entry of entries) {

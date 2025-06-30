@@ -15,7 +15,10 @@ export const Journey = () => {
   )
 
   return (
-    <section id="journey" className="py-20 flex flex-col gap-16 md:gap-24">
+    <section
+      id="journey"
+      className="scroll-m-6 py-20 flex flex-col gap-16 md:gap-24"
+    >
       <div
         className="flex flex-col items-center gap-4 mx-auto text-center max-w-md
           md:max-w-xl lg:max-w-2xl"

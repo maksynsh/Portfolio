@@ -1,6 +1,7 @@
 import {
   About,
   Approach,
+  Clients,
   Contact,
   Hero,
   Highlights,
@@ -13,6 +14,7 @@ export default function Home() {
       <Hero />
       <About />
       <Highlights />
+      <Clients />
       <Journey />
       <Approach />
       <Contact />

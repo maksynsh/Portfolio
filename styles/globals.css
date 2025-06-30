@@ -10,9 +10,9 @@
   }
   body {
     @apply bg-background font-normal text-foreground;
-    font-family: 'NeueMontreal', ui-sans-serif, system-ui, sans-serif,
-      'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-      'Noto Color Emoji';
+    font-family:
+      'NeueMontreal', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+      'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   }
   button {
     @apply active:outline-none;

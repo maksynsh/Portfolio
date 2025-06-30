@@ -4,7 +4,7 @@ import { Card, RevealEffect } from '../ui'
 
 export const Approach = () => {
   return (
-    <section id="approach" className="py-20 flex flex-col gap-10">
+    <section id="approach" className="scroll-m-6 py-20 flex flex-col gap-10">
       <h2
         className="font-semibold tracking-wide text-center text-4xl md:text-5xl
           max-w-md md:max-w-xl mx-auto"
@@ -13,7 +13,7 @@ export const Approach = () => {
       </h2>
 
       <div
-        className="py-20 flex flex-col lg:flex-row items-center justify-center
+        className="py-12 flex flex-col lg:flex-row items-center justify-center
           w-full gap-6 md:gap-12 mx-auto px-8"
       >
         {APPROACH_STEPS.map(

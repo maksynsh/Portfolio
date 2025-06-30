@@ -8,7 +8,7 @@ export const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative z-20 py-20 flex flex-col items-center"
+      className="relative z-20 scroll-m-6 py-20 flex flex-col items-center"
     >
       <h2
         className="text-center font-semibold tracking-wide text-4xl md:text-5xl"
