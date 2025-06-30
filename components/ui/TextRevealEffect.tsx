@@ -4,6 +4,17 @@ import { useEffect, useMemo } from 'react'
 
 import { cn } from '@/utils'
 
+interface TextRevealEffectProps {
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div'
+  words: string
+  className?: string
+  filter?: boolean
+  duration?: number
+  paintedWordsIndexes?: number[]
+  paintedWordsVariant?: 'purple' | 'purpleGradient'
+  defaultWordsClassName?: string
+}
+
 export const TextRevealEffect = ({
   as = 'p',
   words,
@@ -13,16 +24,7 @@ export const TextRevealEffect = ({
   paintedWordsIndexes,
   paintedWordsVariant,
   defaultWordsClassName,
-}: {
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div'
-  words: string
-  className?: string
-  filter?: boolean
-  duration?: number
-  paintedWordsIndexes?: number[]
-  paintedWordsVariant?: 'purple' | 'purpleGradient'
-  defaultWordsClassName?: string
-}) => {
+}: TextRevealEffectProps) => {
   const [scope, animate] = useAnimate()
   const wordsArray = words.split(' ')
   useEffect(() => {
@@ -78,8 +80,18 @@ export const TextRevealEffect = ({
   const Tag = as
 
   return (
-    <Tag className={cn('font-bold leading-snug tracking-wide', className)}>
+    <Tag
+      className={cn('font-bold leading-snug tracking-wide', className)}
+      aria-description={words}
+    >
       {renderWords()}
+
+      {/* For SEO */}
+      <noscript>
+        <span className="hidden" aria-hidden={false}>
+          {words}
+        </span>
+      </noscript>
     </Tag>
   )
 }

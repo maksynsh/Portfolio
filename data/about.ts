@@ -25,7 +25,7 @@ export const aboutItems: BentoGridItemProps[] = [
     id: 'about-item-3',
     title: 'My tech stack',
     description: 'I always learn something new',
-    className: 'lg:col-span-2 md:col-span-3 md:row-span-2',
+    className: 'lg:col-span-2 md:col-span-3 md:row-span-2 cursor-pointer',
     titleClassName: 'justify-center',
     extensions: ['techStack'],
   },
