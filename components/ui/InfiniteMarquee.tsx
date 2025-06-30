@@ -21,31 +21,13 @@ export const InfiniteMarquee = ({
   listClassName,
 }: InfiniteMarqueeProps) => {
   const containerRef = React.useRef<HTMLDivElement>(null)
-  const scrollerRef = React.useRef<HTMLUListElement>(null)
+
+  // Convert children to array for duplication
+  const childrenArray = React.Children.toArray(children)
+  // Duplicate the array for seamless looping
+  const marqueeItems = [...childrenArray, ...childrenArray]
 
   useEffect(() => {
-    addAnimation()
-  }, [])
-
-  const [start, setStart] = useState(false)
-
-  function addAnimation() {
-    if (containerRef.current && scrollerRef.current) {
-      const scrollerContent = Array.from(scrollerRef.current.children)
-
-      scrollerContent.forEach(item => {
-        const duplicatedItem = item.cloneNode(true)
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(duplicatedItem)
-        }
-      })
-
-      getDirection()
-      getSpeed()
-      setStart(true)
-    }
-  }
-  const getDirection = () => {
     if (containerRef.current) {
       if (direction === 'left') {
         containerRef.current.style.setProperty(
@@ -58,10 +40,6 @@ export const InfiniteMarquee = ({
           'reverse',
         )
       }
-    }
-  }
-  const getSpeed = () => {
-    if (containerRef.current) {
       switch (speed) {
         case 'fast':
           containerRef.current.style.setProperty('--animation-duration', '20s')
@@ -73,7 +51,8 @@ export const InfiniteMarquee = ({
           containerRef.current.style.setProperty('--animation-duration', '60s')
       }
     }
-  }
+  }, [direction, speed])
+
   return (
     <div
       ref={containerRef}
@@ -84,15 +63,14 @@ export const InfiniteMarquee = ({
       )}
     >
       <ul
-        ref={scrollerRef}
         className={cn(
-          'flex w-max min-w-full shrink-0 flex-nowrap gap-16 py-4',
-          start && 'animate-scroll',
+          `flex w-max min-w-full shrink-0 flex-nowrap gap-16 py-4
+          animate-scroll`,
           pauseOnHover && 'hover:[animation-play-state:paused]',
           listClassName,
         )}
       >
-        {children}
+        {marqueeItems}
       </ul>
     </div>
   )
