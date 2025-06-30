@@ -6,7 +6,7 @@ import { Button, Paper, PinContainer } from '../ui'
 
 export const Highlights = () => {
   return (
-    <section id="projects" className="py-20 flex flex-col gap-10">
+    <section id="projects" className="py-20 flex flex-col gap-24">
       <h2
         className="font-semibold tracking-wide text-center text-4xl md:text-5xl
           max-w-md md:max-w-xl mx-auto"
@@ -15,14 +15,14 @@ export const Highlights = () => {
       </h2>
       <ul
         className="flex flex-wrap items-center justify-center p-4 gap-x-24
-          gap-y-8"
+          gap-y-[20vh] 2xl:gap-y-[18vh]"
       >
         {projects.map(
           ({ id, title, description, technologiesUsed, img, link }) => (
             <li
               key={id}
-              className="flex items-center justify-center lg:min-h-130 h-100
-                sm:h-120 max-w-140 w-full sm:w-140"
+              className="flex items-center justify-center min-h-[30vh]
+                sm:min-h-[30vh] lg:min-h-[32vh] max-w-140 w-full sm:w-140"
             >
               <PinContainer className="group" title={link} href={link}>
                 <Paper
