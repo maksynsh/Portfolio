@@ -25,7 +25,7 @@ export const Clients = () => {
         >
           {testimonials.map(({ author, quote, url, source }) => (
             <Paper
-              key={quote}
+              key={quote + Math.random()}
               as="li"
               className="relative px-8 py-6 w-100 md:w-128"
               borderGlowingEffect

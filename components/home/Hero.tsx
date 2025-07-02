@@ -40,7 +40,8 @@ export const Hero = () => {
         >
           <div
             className="inline-block sm:whitespace-nowrap uppercase
-              tracking-widest text-xs text-left dark:text-blue-100 w-52 sm:w-80"
+              tracking-widest text-xs text-left dark:text-blue-100 max-w-52
+              sm:w-80"
           >
             {/* Enthusiast with passion for web technologies */}I build web
             applications that are

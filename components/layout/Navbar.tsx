@@ -99,6 +99,7 @@ export const Navbar = ({
       className={cn('flex max-w-fit items-center justify-center', className)}
     >
       <Tabs
+        id="navbar-tabs"
         tabs={navItems}
         activeTab={activeTab}
         defaultTab={activeTab}

@@ -7,11 +7,23 @@ import { cn } from '@/utils'
 
 import { Button } from './Button'
 
-type Tab = {
+export type Tab = {
   title: string
   value: string
   url?: string
   icon?: ReactNode
+}
+
+interface TabsProps {
+  id: string
+  tabs: Tab[]
+  activeTab?: Tab
+  defaultTab?: Tab
+  containerClassName?: string
+  activeTabClassName?: string
+  tabClassName?: string
+  onlyIconsOnMobile?: boolean
+  onTabChange?: (tab: Tab) => void
 }
 
 const DARK_BOX_SHADOW =
@@ -20,6 +32,7 @@ const LIGHT_BOX_SHADOW =
   '0 0 17px 6px rgba(203, 172, 249, 0.75), 0 0 34px 12px rgba(203, 172, 249, 0.58)'
 
 export const Tabs = ({
+  id,
   tabs: propTabs,
   activeTab,
   defaultTab,
@@ -27,21 +40,17 @@ export const Tabs = ({
   activeTabClassName,
   tabClassName,
   onlyIconsOnMobile,
-}: {
-  tabs: Tab[]
-  activeTab?: Tab
-  defaultTab?: Tab
-  containerClassName?: string
-  activeTabClassName?: string
-  tabClassName?: string
-  onlyIconsOnMobile?: boolean
-}) => {
+  onTabChange,
+}: TabsProps) => {
   const [active, setActive] = useState<Tab | undefined>(activeTab ?? defaultTab)
   const containerRef = useRef<HTMLDivElement>(null)
   const [indicatorStyle, setIndicatorStyle] = useState({
     left: 0,
     boxShadow: DARK_BOX_SHADOW,
   })
+
+  const glowIndicatorId = `glow-indicator__${id}`
+  const activeTabHighlightId = `active-tab__${id}`
 
   const selectTab = (idx: number) => {
     setActive(propTabs[idx])
@@ -62,11 +71,12 @@ export const Tabs = ({
 
   useEffect(() => {
     if (containerRef.current && active) {
+      onTabChange && onTabChange(active)
       const activeIndex = propTabs.findIndex(tab => tab.value === active.value)
       const activeButton: HTMLElement | null =
         containerRef.current.querySelectorAll('a')[activeIndex]
       const glowIndicator: HTMLElement | null =
-        document.querySelector('#glow-indicator')
+        containerRef.current.querySelector(`#${glowIndicatorId}`)
 
       if (activeButton && glowIndicator) {
         const { offsetLeft, offsetWidth } = activeButton
@@ -79,18 +89,18 @@ export const Tabs = ({
   }, [active, propTabs])
 
   return (
-    <div className="relative">
+    <div className="relative" ref={containerRef}>
       <motion.div
-        id="glow-indicator"
+        id={glowIndicatorId}
         className={cn(
-          indicatorStyle.left < 1 ? 'opacity-0' : 'opacity-100',
+          indicatorStyle.left < 1 || !active ? '!opacity-0' : 'opacity-100',
           `transition-opacity duration-[.35s] h-1 w-2 md:w-6 bg-gray-100 rounded
           absolute -top-0.5`,
         )}
         style={{
           boxShadow: indicatorStyle.boxShadow,
         }}
-        layoutId="glowIndicator"
+        layoutId={glowIndicatorId}
         animate={{ left: indicatorStyle.left }}
         transition={{
           type: 'spring',
@@ -99,7 +109,6 @@ export const Tabs = ({
         }}
       />
       <div
-        ref={containerRef}
         className={cn(
           `flex flex-row items-center justify-start [perspective:1000px]
           relative no-scrollbar max-w-full w-full`,
@@ -130,7 +139,7 @@ export const Tabs = ({
           >
             {active?.value === tab.value && (
               <motion.div
-                layoutId="clickedbutton"
+                layoutId={activeTabHighlightId}
                 transition={{ type: 'spring', bounce: 0.3, duration: 0.6 }}
                 className={cn(
                   'absolute inset-0 rounded-full',

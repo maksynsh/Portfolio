@@ -1,15 +1,17 @@
-import { IoArrowForward } from 'react-icons/io5'
-
 import { techStackPartial } from '@/data/tech-stack'
+import dynamic from 'next/dynamic'
+
+const SeeFullStackAction = dynamic(() =>
+  import('./SeeFullTechStackAction').then(m => m.SeeFullStackAction),
+)
 
 export const TechStack = () => (
   <>
     <div
       className="absolute left-5 lg:left-10 bottom-6 flex items-center gap-1
-        opacity-0 group-hover/bento:opacity-100 z-30 transition-all uppercase
-        text-sm"
+        opacity-0 group-hover/bento:opacity-100 z-30 transition-all text-sm"
     >
-      <IoArrowForward /> See full list
+      <SeeFullStackAction />
     </div>
 
     <div
