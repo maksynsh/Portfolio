@@ -67,11 +67,11 @@ export const Tooltip = ({ title, description, children }: TooltipProps) => {
           >
             <div
               className="absolute inset-x-10 -bottom-px z-30 h-px w-[20%]
-                bg-gradient-to-r from-transparent via-purple-600 to-transparent"
+                bg-gradient-to-r from-transparent via-sky-600 to-transparent"
             />
             <div
               className="absolute -bottom-px left-10 z-30 h-px w-[40%]
-                bg-gradient-to-r from-transparent via-sky-500 to-transparent"
+                bg-gradient-to-r from-transparent via-purple-500 to-transparent"
             />
             <div className="relative z-30 text-base font-bold text-white">
               {title}

@@ -27,3 +27,21 @@ export const TESTIMONIALS = [
     quote: `...Maksym consistently demonstrated strong technical skills, ownership, and a deep understanding of both frontend and backend development.\nHe approached complex tasks with confidence, communicated clearly across the team, and was always proactive in finding efficient solutions...`,
   },
 ]
+
+export const PARTNERS = [
+  {
+    img: '/images/logos/cisco.webp',
+  },
+  {
+    img: '/images/logos/uz.png',
+  },
+  {
+    img: '/images/logos/dreamflare.svg',
+  },
+  {
+    img: '/images/logos/epp.png',
+  },
+  {
+    img: '/images/logos/sewan.png',
+  },
+]

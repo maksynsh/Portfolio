@@ -1,4 +1,4 @@
-import { TESTIMONIALS } from '@/data/clients'
+import { PARTNERS, TESTIMONIALS } from '@/data/clients'
 import { InfiniteMarquee, Paper, Tooltip } from '../ui'
 import { useMemo } from 'react'
 
@@ -15,13 +15,13 @@ export const Clients = () => {
       </h2>
 
       <div
-        className="py-12 flex flex-col lg:flex-row items-center justify-center
-          w-full gap-6 md:gap-12 mx-auto px-8"
+        className="flex flex-col lg:flex-row items-center justify-center w-full
+          gap-6 md:gap-12 mx-auto px-8"
       >
         <InfiniteMarquee
           speed="slow"
           direction="right"
-          listClassName="gap-5 md:gap-10 lg:gap-16 pb-8"
+          listClassName="gap-5 md:gap-10 lg:gap-16 py-8"
         >
           {testimonials.map(({ author, quote, url, source }) => (
             <Paper
@@ -76,6 +76,15 @@ export const Clients = () => {
             </Paper>
           ))}
         </InfiniteMarquee>
+      </div>
+
+      <div
+        className="flex flex-wrap mx-auto justify-center gap-x-12 md:gap-x-16
+          gap-y-5 max-w-screen-lg"
+      >
+        {PARTNERS.map(({ img }) => (
+          <img className="min-h-14 w-36 object-contain" src={img} />
+        ))}
       </div>
     </section>
   )

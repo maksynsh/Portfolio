@@ -1,7 +1,7 @@
 'use client'
 
 import { cn } from '@/utils'
-import React, { ReactNode, useEffect, useState } from 'react'
+import React, { ReactNode, useEffect } from 'react'
 
 interface InfiniteMarqueeProps {
   children: ReactNode
