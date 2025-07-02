@@ -20,8 +20,30 @@ export const Navbar = ({
   className?: string
 }) => {
   const [activeTab, setActiveTab] = useState(navItems[0])
-
   const handler = useRef<NodeJS.Timeout>(null)
+  const ignoreObserver = useRef(false)
+  const ignoreTimeout = useRef<NodeJS.Timeout>(null)
+
+  // Listen for hash changes (tab clicks update hash)
+  useEffect(() => {
+    const onHashChange = () => {
+      ignoreObserver.current = true
+      setActiveTab(
+        navItems.find(tab => tab.url === window.location.hash) ?? navItems[0],
+      )
+      // Ignore observer for a short period after hash change
+      if (ignoreTimeout.current) clearTimeout(ignoreTimeout.current)
+      ignoreTimeout.current = setTimeout(() => {
+        ignoreObserver.current = false
+      }, 700)
+    }
+
+    window.addEventListener('hashchange', onHashChange)
+    return () => {
+      window.removeEventListener('hashchange', onHashChange)
+      if (ignoreTimeout.current) clearTimeout(ignoreTimeout.current)
+    }
+  }, [navItems])
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -36,9 +58,9 @@ export const Navbar = ({
 
     if (sections.length === 0) return
 
-    // TODO: fix wrong behavior
     const observer = new IntersectionObserver(
       entries => {
+        if (ignoreObserver.current) return
         for (const entry of entries) {
           if (entry.isIntersecting) {
             const id = entry.target.getAttribute('id')
@@ -48,7 +70,6 @@ export const Navbar = ({
                 if (handler.current) {
                   clearTimeout(handler.current)
                 }
-
                 handler.current = setTimeout(() => {
                   setActiveTab(matchedTab)
                   window.history.replaceState(null, '', `#${id}`)
@@ -69,6 +90,7 @@ export const Navbar = ({
 
     return () => {
       observer.disconnect()
+      if (handler.current) clearTimeout(handler.current)
     }
   }, [navItems])
 
