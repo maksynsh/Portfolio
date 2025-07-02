@@ -83,7 +83,7 @@ export const Clients = () => {
           gap-y-5 max-w-screen-lg"
       >
         {PARTNERS.map(({ img }) => (
-          <img className="min-h-14 w-36 object-contain" src={img} />
+          <img key={img} className="min-h-14 w-36 object-contain" src={img} />
         ))}
       </div>
     </section>

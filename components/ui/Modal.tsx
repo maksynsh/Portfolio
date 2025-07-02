@@ -1,4 +1,5 @@
 'use client'
+import { useMounted } from '@/hooks'
 import { cn } from '@/utils'
 import { AnimatePresence, motion } from 'framer-motion'
 import React, {
@@ -66,8 +67,11 @@ export const ModalBody = ({
   className?: string
 }) => {
   const { open } = useModal()
+  const mounted = useMounted()
 
   useEffect(() => {
+    if (!mounted) return
+
     if (open) {
       document.body.style.overflow = 'hidden'
     } else {
@@ -82,6 +86,8 @@ export const ModalBody = ({
   const modalRef = useRef<HTMLDivElement>(null)
   const { setOpen } = useModal()
   useOutsideClick(modalRef, () => setOpen(false))
+
+  if (!mounted) return null
 
   return createPortal(
     <AnimatePresence>
@@ -237,15 +243,18 @@ const CloseIcon = () => {
 // Add it in a separate file, I've added here for simplicity
 export const useOutsideClick = (
   ref: React.RefObject<HTMLDivElement | null>,
-  callback: Function,
+  callback: () => void,
 ) => {
+  const mounted = useMounted()
+
   useEffect(() => {
+    if (!mounted) return
     const listener = (event: any) => {
       // DO NOTHING if the element being clicked is the target element or their children
       if (!ref.current || ref.current.contains(event.target)) {
         return
       }
-      callback(event)
+      callback()
     }
 
     document.addEventListener('mousedown', listener)

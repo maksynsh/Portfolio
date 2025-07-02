@@ -71,7 +71,7 @@ export const Tabs = ({
 
   useEffect(() => {
     if (containerRef.current && active) {
-      onTabChange && onTabChange(active)
+      if (onTabChange) onTabChange(active)
       const activeIndex = propTabs.findIndex(tab => tab.value === active.value)
       const activeButton: HTMLElement | null =
         containerRef.current.querySelectorAll('a')[activeIndex]
