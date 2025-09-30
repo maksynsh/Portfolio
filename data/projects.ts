@@ -34,17 +34,31 @@ export const projects = [
   },
   {
     id: 3,
-    title: 'Tropicana - Ladning Page',
+    title: 'Crezco',
     description:
-      'One of my first pet projects ever. A simple yet nice rethinking of the official landing page.',
-    img: '/images/projects/tropicana.png',
+      'An API powering platform helping SMEs move money. One API, multiple financial products, to help grow the economy.',
+    img: '/images/projects/crezco.png',
     technologiesUsed: [
-      TECHNOLOGIES.html,
-      TECHNOLOGIES.css,
-      TECHNOLOGIES.javascript,
+      TECHNOLOGIES.next,
+      TECHNOLOGIES.typescript,
+      TECHNOLOGIES.tailwind,
+      TECHNOLOGIES.framer,
     ],
-    link: 'https://tropicana-ui.netlify.app/',
+    link: 'https://crezco.com/',
   },
+  // {
+  //   id: 3,
+  //   title: 'Tropicana - Ladning Page',
+  //   description:
+  //     'One of my first pet projects ever. A simple yet nice rethinking of the official landing page.',
+  //   img: '/images/projects/tropicana.png',
+  //   technologiesUsed: [
+  //     TECHNOLOGIES.html,
+  //     TECHNOLOGIES.css,
+  //     TECHNOLOGIES.javascript,
+  //   ],
+  //   link: 'https://tropicana-ui.netlify.app/',
+  // },
   {
     id: 4,
     title: 'EPP - Internal Social Network',

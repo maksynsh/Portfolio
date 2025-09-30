@@ -9,7 +9,7 @@ export const TechStack = () => (
   <>
     <div
       className="absolute left-5 lg:left-10 bottom-6 flex items-center gap-1
-        opacity-0 group-hover/bento:opacity-100 z-30 transition-all text-sm"
+        z-30 underline text-sm"
     >
       <SeeFullStackAction />
     </div>

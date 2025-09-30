@@ -41,7 +41,7 @@ export const Hero = () => {
           <div
             className="inline-block sm:whitespace-nowrap uppercase
               tracking-widest text-xs text-left dark:text-blue-100 max-w-52
-              sm:w-80"
+              sm:w-80 sm:mr-24"
           >
             {/* Enthusiast with passion for web technologies */}I build web
             applications that are

@@ -107,7 +107,7 @@ export const ModalBody = ({
             display: 'none',
           }}
           className="fixed [perspective:800px] [transform-style:preserve-3d]
-            inset-0 h-full w-full flex items-center justify-center z-50"
+            inset-0 h-full w-full flex items-center justify-center z-[1000]"
         >
           <Overlay />
 
