@@ -23,5 +23,11 @@
     }
   },
   "extends": "./node_modules/gts/tsconfig-google.json",
-  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"]
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "app/api/contact/submit-contact-form.js"
+  ]
 }

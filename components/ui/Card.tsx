@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { FcCursor } from 'react-icons/fc'
 import { PiHandTap } from 'react-icons/pi'
 
-import { cn } from '@/utils'
+import { cn } from '@/lib/utils'
 
 import { MovingBorder } from './MovingBorder'
 

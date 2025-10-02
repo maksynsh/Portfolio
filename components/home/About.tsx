@@ -1,4 +1,4 @@
-import { aboutItems } from '@/data/about'
+import { aboutItems } from '@/lib/data/about'
 
 import { BentoGrid, BentoGridItem } from '../ui'
 

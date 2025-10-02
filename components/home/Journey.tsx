@@ -1,6 +1,6 @@
 import { ReactNode, useMemo } from 'react'
 
-import { journey } from '@/data/journey'
+import { journey } from '@/lib/data/journey'
 
 import { Timeline } from '../ui'
 

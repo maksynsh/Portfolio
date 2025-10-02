@@ -2,13 +2,13 @@ import { withSentryConfig } from '@sentry/nextjs'
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  output: 'standalone',
   // typescript: {
   //   ignoreBuildErrors: true,
   // },
-  images: {
-    unoptimized: true,
-  },
+  // images: {
+  //   unoptimized: true,
+  // },
 }
 
 export default withSentryConfig(nextConfig, {

@@ -1,7 +1,7 @@
 'use client'
 import { IoArrowForward } from 'react-icons/io5'
 
-import { techStackFull } from '@/data/tech-stack'
+import { techStackFull } from '@/lib/data/tech-stack'
 import {
   Modal,
   ModalBody,
@@ -25,7 +25,7 @@ const stackTabs: StackTab[] = [
 const OutsideCloseButton = () => {
   const { setOpen } = useModal()
   return (
-    <Button size="sm" onClick={() => setOpen(false)}>
+    <Button variant="secondary" size="sm" onClick={() => setOpen(false)}>
       Close
     </Button>
   )

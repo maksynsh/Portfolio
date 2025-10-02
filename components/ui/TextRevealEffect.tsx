@@ -2,7 +2,7 @@
 import { motion, stagger, useAnimate } from 'framer-motion'
 import { useEffect, useMemo } from 'react'
 
-import { cn } from '@/utils'
+import { cn } from '@/lib/utils'
 
 interface TextRevealEffectProps {
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span' | 'div'

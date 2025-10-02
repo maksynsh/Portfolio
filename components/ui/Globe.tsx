@@ -9,7 +9,7 @@ import { Color, Fog, PerspectiveCamera, Scene, Vector3 } from 'three'
 // const ThreeGlobe = dynamic(() => import('three-globe'), { ssr: false })
 import ThreeGlobe from 'three-globe'
 
-import countries from '@/data/globe.json'
+import countries from '@/lib/data/globe.json'
 declare module '@react-three/fiber' {
   interface ThreeElements {
     threeGlobe: any

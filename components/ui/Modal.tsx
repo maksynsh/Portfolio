@@ -1,6 +1,6 @@
 'use client'
-import { useMounted } from '@/hooks'
-import { cn } from '@/utils'
+import { useMounted } from '@/lib/hooks'
+import { cn } from '@/lib/utils'
 import { AnimatePresence, motion } from 'framer-motion'
 import React, {
   ReactNode,

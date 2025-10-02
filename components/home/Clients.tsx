@@ -1,4 +1,4 @@
-import { PARTNERS, TESTIMONIALS } from '@/data/clients'
+import { PARTNERS, TESTIMONIALS } from '@/lib/data/clients'
 import { InfiniteMarquee, Paper, Tooltip } from '../ui'
 import { useMemo } from 'react'
 
@@ -53,7 +53,7 @@ export const Clients = () => {
                       <img
                         className="rounded-full size-11"
                         src={author.avatarImageUrl}
-                        alt={author.name}
+                        alt=""
                       />
                     </Tooltip>
                   </a>

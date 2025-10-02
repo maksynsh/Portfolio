@@ -7,8 +7,7 @@ export const TESTIMONIALS = [
       name: 'Jesus Mota',
       designation: 'Full Stack Developer',
       url: 'https://www.linkedin.com/in/jesusmota/',
-      avatarImageUrl:
-        'https://media.licdn.com/dms/image/v2/C5603AQE1n6JsdHE32A/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1574620892308?e=1756944000&v=beta&t=BjTcgHgty2UACJFnHvPPJpzBet2-bL-KWsEUq3tLy-U',
+      avatarImageUrl: '/images/authors/jesusmota.jpg',
     },
     source: NETWORKS.LINKEDIN,
     url: LINKS.LINKEDIN.url,
@@ -19,8 +18,7 @@ export const TESTIMONIALS = [
       name: 'Volodymyr Surnyk',
       designation: 'DevOps Team Lead',
       url: 'https://www.linkedin.com/in/volodymyr-surnyk/',
-      avatarImageUrl:
-        'https://media.licdn.com/dms/image/v2/D4D03AQHzedS0QysrTw/profile-displayphoto-shrink_100_100/B4DZYP3JyZHsAU-/0/1744022839165?e=1756944000&v=beta&t=zufG9agXvag_evagZxrmbaMLPeQ6kBjs9r70kbaON6c',
+      avatarImageUrl: '/images/authors/syrnuk.jpg',
     },
     source: NETWORKS.LINKEDIN,
     url: LINKS.LINKEDIN.url,

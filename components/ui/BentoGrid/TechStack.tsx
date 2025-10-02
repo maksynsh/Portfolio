@@ -1,4 +1,4 @@
-import { techStackPartial } from '@/data/tech-stack'
+import { techStackPartial } from '@/lib/data/tech-stack'
 import dynamic from 'next/dynamic'
 
 const SeeFullStackAction = dynamic(() =>

@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { ReactNode, useEffect, useRef, useState } from 'react'
 
-import { cn } from '@/utils'
+import { cn } from '@/lib/utils'
 
 import { Button } from './Button'
 

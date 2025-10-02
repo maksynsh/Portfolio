@@ -1,6 +1,6 @@
 import { CSSProperties, FC, ReactNode } from 'react'
 
-import { cn } from '@/utils'
+import { cn } from '@/lib/utils'
 import {
   BorderGlowingEffect,
   BorderGlowingEffectProps,

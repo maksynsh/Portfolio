@@ -1,9 +1,12 @@
 'use client'
+import { usePathname } from 'next/navigation'
 import { ReactNode, useEffect, useRef, useState } from 'react'
 
-import { cn } from '@/utils'
+import { cn } from '@/lib/utils'
 
 import { Tabs } from '../ui'
+import { useRouter } from 'next/navigation'
+import { useParams } from 'next/navigation'
 
 export interface NavItem {
   title: string
@@ -19,7 +22,8 @@ export const Navbar = ({
   navItems: NavItem[]
   className?: string
 }) => {
-  const [activeTab, setActiveTab] = useState(navItems[0])
+  const getCurrentUrl = () => window.location.pathname + window.location.hash
+  const [activeTab, setActiveTab] = useState<NavItem>()
   const handler = useRef<NodeJS.Timeout>(null)
   const ignoreObserver = useRef(false)
   const ignoreTimeout = useRef<NodeJS.Timeout>(null)
@@ -28,8 +32,9 @@ export const Navbar = ({
   useEffect(() => {
     const onHashChange = () => {
       ignoreObserver.current = true
+
       setActiveTab(
-        navItems.find(tab => tab.url === window.location.hash) ?? navItems[0],
+        navItems.find(tab => tab.url === getCurrentUrl()) ?? undefined,
       )
       // Ignore observer for a short period after hash change
       if (ignoreTimeout.current) clearTimeout(ignoreTimeout.current)
@@ -48,7 +53,7 @@ export const Navbar = ({
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setActiveTab(
-        navItems.find(tab => tab.url === window.location.hash) ?? navItems[0],
+        navItems.find(tab => tab.url === getCurrentUrl()) ?? undefined,
       )
     }
 
@@ -102,7 +107,6 @@ export const Navbar = ({
         id="navbar-tabs"
         tabs={navItems}
         activeTab={activeTab}
-        defaultTab={activeTab}
         containerClassName={`bg-gray-400/5 saturate-50 hover:brightness-110 transition-all 
             backdrop-blur-xl border border-white/10 rounded-full p-1.5 shadow-md gap-2`}
         activeTabClassName="bg-gray-500/10 dark:bg-gray-700/20"

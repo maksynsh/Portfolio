@@ -1,7 +1,7 @@
 import { cva, VariantProps } from 'cva'
 import { HTMLAttributes, ReactNode } from 'react'
 
-import { cn } from '@/utils'
+import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
   `relative flex items-center justify-center overflow-hidden gap-2 cursor-pointer
@@ -11,6 +11,8 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: 'bg-white text-black hover:bg-white/90',
+        secondary:
+          'bg-gray-400/5 saturate-50 hover:brightness-110 backdrop-blur-xl border border-white/10',
         magic: '!rounded-xl !p-px disabled:!p-0 w-fit text-white',
         link: 'underline-offset-4 text-purple hover:text-glow hover:underline',
         ghost:
@@ -19,8 +21,8 @@ const buttonVariants = cva(
       },
       size: {
         default: 'h-10 rounded-lg px-4 py-3',
-        sm: 'h-9 text-sm rounded-lg px-3',
-        lg: 'h-11 rounded-xl px-4',
+        sm: 'h-9 text-sm rounded-lg px-4',
+        lg: 'h-11 rounded-xl px-6',
         xl: 'h-14 text-lg rounded-xl px-12',
         link: 'h-fit px-1',
         icon: 'size-11 px-0 py-0',
@@ -35,10 +37,8 @@ const buttonVariants = cva(
 
 interface ButtonProps
   extends VariantProps<typeof buttonVariants>,
-    HTMLAttributes<HTMLElement> {
+    HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
   href?: string
-  icon?: ReactNode
-  iconPosition?: 'left' | 'right'
   disabled?: boolean
 }
 
@@ -49,6 +49,7 @@ export const Button = (props: ButtonProps) => {
   return (
     <Tag
       {...props}
+      type="button"
       className={cn(buttonVariants({ variant, size }), className)}
     >
       <Content {...props} />
@@ -56,12 +57,7 @@ export const Button = (props: ButtonProps) => {
   )
 }
 
-const Content = ({
-  variant,
-  icon,
-  iconPosition = 'left',
-  children,
-}: ButtonProps) => {
+const Content = ({ variant, children }: ButtonProps) => {
   if (variant === 'magic') {
     return (
       <>
@@ -74,19 +70,11 @@ const Content = ({
             justify-center rounded-xl bg-slate-950 px-6 backdrop-blur-3xl
             group-hover:scale-[98%] active:rotate-1 transition-all gap-2"
         >
-          {iconPosition === 'left' ? icon : null}
           {children}
-          {iconPosition === 'right' ? icon : null}
         </span>
       </>
     )
   }
 
-  return (
-    <>
-      {iconPosition === 'left' ? icon : null}
-      {children}
-      {iconPosition === 'right' ? icon : null}
-    </>
-  )
+  return <>{children}</>
 }

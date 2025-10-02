@@ -9,7 +9,7 @@ import {
 import React from 'react'
 import { useRef } from 'react'
 
-import { cn } from '@/utils'
+import { cn } from '@/lib/utils'
 
 export function MovingBorder({
   borderRadius = '1.75rem',

@@ -4,7 +4,7 @@ import React, { useMemo, useRef } from 'react'
 // @ts-expect-error ts support
 import * as THREE from 'three'
 
-import { cn } from '@/utils'
+import { cn } from '@/lib/utils'
 
 export const RevealEffect = ({
   animationSpeed = 0.4,

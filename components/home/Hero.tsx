@@ -69,18 +69,11 @@ export const Hero = () => {
             Hi, I&apos;m Max, a Web Engineer based in Ukraine.
           </h2>
 
-          <Button
-            href="#about"
-            icon={
-              <IoNavigate
-                className="group-hover:translate-x-1.5 transition-all ease-in"
-              />
-            }
-            iconPosition="right"
-            variant="magic"
-            size="lg"
-          >
-            See my Work
+          <Button href="#about" variant="magic" size="lg">
+            See my Work{' '}
+            <IoNavigate
+              className="group-hover:translate-x-1.5 transition-all ease-in"
+            />
           </Button>
         </div>
       </div>

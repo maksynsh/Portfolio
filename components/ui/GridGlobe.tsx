@@ -1,7 +1,7 @@
 'use client'
 import dynamic from 'next/dynamic'
 
-import { cn } from '@/utils'
+import { cn } from '@/lib/utils'
 
 const World = dynamic(() => import('./Globe').then(m => m.World), {
   ssr: false,

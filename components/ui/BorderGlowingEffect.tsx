@@ -1,6 +1,6 @@
 'use client'
 
-import { cn } from '@/utils'
+import { cn } from '@/lib/utils'
 import { animate } from 'framer-motion'
 import { memo, useCallback, useEffect, useRef } from 'react'
 

@@ -5,7 +5,7 @@ import { ReactNode, Ref } from 'react'
 import type { LottieProps, Options } from 'react-lottie'
 
 import animationData from '@/data/mini-confetti.json'
-import { cn } from '@/utils'
+import { cn } from '@/lib/utils'
 
 const Lottie = dynamic(() => import('react-lottie'), {
   ssr: false,

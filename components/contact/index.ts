@@ -19,29 +19,10 @@
  * ) => string
  */
 
-//@index('./*/index.ts', (f, _, info) => `export * from '${f.path.replace('/index', '')}'`)
-export * from './BentoGrid'
-export * from './form'
+//@index('./*/index.ts', (f, _, info) => `export * from '${f.path.replace('/index', '')}';`)
+
 //@endindex
 
 //@index('./*.tsx', f => `export * from '${f.path}'`)
-export * from './BackgroundGradientAnimation'
-export * from './BorderGlowingEffect'
-export * from './Button'
-export * from './Card'
-export * from './Confetti'
-export * from './FlipWords'
-export * from './Globe'
-export * from './GridGlobe'
-export * from './InfiniteMarquee'
-export * from './Modal'
-export * from './MovingBorder'
-export * from './Paper'
-export * from './PinContainer'
-export * from './RevealEffect'
-export * from './Spotlight'
-export * from './Tabs'
-export * from './TextRevealEffect'
-export * from './Timeline'
-export * from './Tooltip'
+export * from './ContactForm'
 //@endindex

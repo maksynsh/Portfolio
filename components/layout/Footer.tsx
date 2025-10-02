@@ -1,4 +1,4 @@
-import { LINKS } from '@/data/contacts'
+import { LINKS } from '@/lib/data/contacts'
 
 import { Button } from '../ui'
 

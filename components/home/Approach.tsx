@@ -1,4 +1,4 @@
-import { APPROACH_STEPS } from '@/data/approach'
+import { APPROACH_STEPS } from '@/lib/data/approach'
 
 import { Card, RevealEffect } from '../ui'
 

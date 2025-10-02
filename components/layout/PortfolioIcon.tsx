@@ -1,8 +1,9 @@
 'use client'
-import { motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import { useRef, useState } from 'react'
+import { motion } from 'framer-motion'
 
-import { cn } from '@/utils'
+import { cn } from '@/lib/utils'
 
 import { Confetti } from '../ui'
 
@@ -13,11 +14,14 @@ const images = [
 ]
 
 export const PortfolioIcon = () => {
+  const router = useRouter()
   const lottieRef = useRef<any>(null)
   const [index, setIndex] = useState<number>(0)
 
   const handleClick = () => {
     setIndex(prev => (images[prev + 1] ? prev + 1 : 0))
+    router.push('/')
+
     if (lottieRef.current) {
       lottieRef.current.stop()
       lottieRef.current.play()

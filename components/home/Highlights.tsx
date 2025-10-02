@@ -1,8 +1,9 @@
 import { IoArrowForward } from 'react-icons/io5'
 
-import { projects } from '@/data/projects'
+import { projects } from '@/lib/data/projects'
 
 import { Button, Paper, PinContainer } from '../ui'
+import Image from 'next/image'
 
 export const Highlights = () => {
   return (
@@ -41,7 +42,9 @@ export const Highlights = () => {
                     <img src="/images/bg/bg.png" alt="Background image" />
                   </div>
 
-                  <img
+                  <Image
+                    width={500}
+                    height={350}
                     src={img}
                     alt={title}
                     className="absolute z-10 sm:-bottom-16 scale-90
@@ -88,10 +91,9 @@ export const Highlights = () => {
                     className="text-sm md:text-base dark:text-purple"
                     variant="link"
                     size="link"
-                    icon={<IoArrowForward className="size-5 md:size-6" />}
-                    iconPosition="right"
                   >
                     Check out live
+                    <IoArrowForward className="size-5 md:size-6" />
                   </Button>
                 </div>
               </PinContainer>

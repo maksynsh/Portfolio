@@ -18,12 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={'antialiased'}>
+      <body className={'antialiased dark:bg-black-100'}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Header />
           <main
-            className="relative dark:bg-black-100 flex justify-center
-              items-center flex-col mx-auto sm:px-10 px-5 overflow-x-clip"
+            className="relative flex justify-center items-center flex-col
+              mx-auto sm:px-10 px-5 overflow-x-clip min-h-[calc(100vh-60px)]"
           >
             {children}
           </main>

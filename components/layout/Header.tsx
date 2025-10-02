@@ -1,7 +1,7 @@
 import { IoArrowForward } from 'react-icons/io5'
 
-import { LINKS } from '@/data/contacts'
-import { navItems } from '@/data/nav'
+import { LINKS } from '@/lib/data/contacts'
+import { navItems } from '@/lib/data/nav'
 
 import { Button } from '../ui'
 import { Navbar } from './Navbar'
@@ -15,7 +15,7 @@ export const Header = () => {
         sm:px-10"
     >
       <div
-        className="flex items-center justify-between flex-1 gap-2 max-w-7xl
+        className="flex items-center justify-between flex-1 gap-3 max-w-7xl
           mx-auto"
       >
         <div className="flex-1">
@@ -31,20 +31,18 @@ export const Header = () => {
               href={LINKS.LINKEDIN.url}
               size="sm"
               variant="ghost"
-              icon={<IoArrowForward className="-rotate-45" />}
-              iconPosition="right"
             >
               {LINKS.LINKEDIN.name}
+              <IoArrowForward className="-rotate-45" />
             </Button>
             <Button
               className="rounded-full"
               href={LINKS.CV.url}
               size="sm"
               variant="ghost"
-              icon={<IoArrowForward className="-rotate-45" />}
-              iconPosition="right"
             >
               {LINKS.CV.name}
+              <IoArrowForward className="-rotate-45" />
             </Button>
           </div>
         </div>

@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { IoCopyOutline } from 'react-icons/io5'
 
-import { MY_CONTACT_EMAIL } from '@/data/contacts'
+import { MY_CONTACT_EMAIL } from '@/lib/data/contacts'
 
 import { Button } from '../Button'
 import { Confetti } from '../Confetti'
@@ -31,12 +31,10 @@ export const EmailAction = () => {
         className="pointer-events-auto mx-auto bg-blue-950"
         variant="magic"
         size="lg"
-        icon={<IoCopyOutline />}
-        iconPosition="left"
         onClick={handleCopy}
         disabled={copied}
       >
-        {copied ? 'Email copied!' : 'Copy my email'}
+        <IoCopyOutline /> {copied ? 'Email copied!' : 'Copy my email'}
       </Button>
     </Confetti>
   )
