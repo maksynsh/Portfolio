@@ -52,6 +52,7 @@ const eslintConfig = [
       'no-console': 'warn',
       'no-underscore-dangle': 'off',
       'no-unused-vars': 'warn',
+      'react/display-name': 'off',
     },
   },
   eslintPluginPrettierRecommended,
@@ -60,6 +61,7 @@ const eslintConfig = [
   {
     rules: {
       '@next/next/no-img-element': 'off',
+      'react/display-name': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/ban-ts-comment': 'off',
     },

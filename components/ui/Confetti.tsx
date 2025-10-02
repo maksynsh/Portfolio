@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 import { ReactNode, Ref } from 'react'
 import type { LottieProps, Options } from 'react-lottie'
 
-import animationData from '@/data/mini-confetti.json'
+import animationData from '@/lib/data/mini-confetti.json'
 import { cn } from '@/lib/utils'
 
 const Lottie = dynamic(() => import('react-lottie'), {

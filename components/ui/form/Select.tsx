@@ -7,7 +7,7 @@ import {
   AnimatePresence,
 } from 'framer-motion'
 import { Label } from './Label'
-import { forwardRef, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Button } from '../Button'
 import { IoChevronDown } from 'react-icons/io5'
 import { ChangeHandler } from 'react-hook-form'
@@ -51,14 +51,14 @@ export const Select = ({
 
   const containerRef = useRef<HTMLDivElement>(null)
 
-  let mouseX = useMotionValue(0)
-  let mouseY = useMotionValue(0)
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
 
   const selectedOption = options.find(option => option.value === value)
   const displayText = selectedOption?.label || placeholder || 'Select an option'
 
   function handleMouseMove({ currentTarget, clientX, clientY }: any) {
-    let { left, top } = currentTarget.getBoundingClientRect()
+    const { left, top } = currentTarget.getBoundingClientRect()
     mouseX.set(clientX - left)
     mouseY.set(clientY - top)
   }

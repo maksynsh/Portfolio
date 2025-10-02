@@ -3,10 +3,11 @@ import { IoNavigate } from 'react-icons/io5'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
-import { Button, Input, Paper, Select, Textarea } from '../ui'
+import { Button, Confetti, Input, Paper, Select, Textarea } from '../ui'
 import { MY_SERVICES } from '@/lib/data/my-services'
+import { useState } from 'react'
 
-const Inputs = z.object({
+export const ContactInputs = z.object({
   firstname: z.string().min(2, { error: 'Please enter your name' }),
   lastname: z.string().optional(),
   email: z.email(),
@@ -17,9 +18,13 @@ const Inputs = z.object({
   message: z.string().nonempty(),
 })
 
-type ContactSchema = z.infer<typeof Inputs>
+type ContactSchema = z.infer<typeof ContactInputs>
 
 export const ContactForm = () => {
+  const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
   const {
     register,
     handleSubmit,
@@ -27,15 +32,26 @@ export const ContactForm = () => {
     watch,
     formState: { errors },
   } = useForm<ContactSchema>({
-    resolver: zodResolver(Inputs),
+    resolver: zodResolver(ContactInputs),
   })
 
   const onSubmit: SubmitHandler<ContactSchema> = async data => {
-    const res = await fetch('/api/contact', {
+    setError(null)
+    setIsSubmitting(true)
+
+    const result = await fetch('/api/contact', {
       body: JSON.stringify(data),
       method: 'POST',
     })
-    debugger
+
+    setIsSubmitting(false)
+
+    if (result.ok) {
+      setSubmitted(true)
+    } else {
+      const response = await result.json()
+      setError(response.message ?? 'Something went wrong.')
+    }
   }
 
   return (
@@ -111,15 +127,28 @@ export const ContactForm = () => {
         />
 
         <div className="flex flex-col items-center gap-2 mt-8">
-          <Button
-            className="w-full"
-            size="xl"
-            variant="magic"
-            onClick={handleSubmit(onSubmit)}
-          >
-            Send Message
-            <IoNavigate className="size-4 mt-0.5" />
-          </Button>
+          <div className="relative w-full">
+            {submitted && (
+              <Confetti
+                className="absolute bottom-3 left-1/2 -translate-x-1/2 size-64"
+                options={{
+                  loop: false,
+                  autoplay: true,
+                }}
+              ></Confetti>
+            )}
+            <Button
+              className="w-full"
+              size="xl"
+              variant="magic"
+              disabled={isSubmitting}
+              onClick={handleSubmit(onSubmit)}
+            >
+              Send Message
+              <IoNavigate className="size-4 mt-0.5" />
+            </Button>
+          </div>
+          {error && <p className="text-red-700 text-sm"> {error}</p>}
           <Button
             className="opacity-80 hover:opacity-100"
             size="sm"

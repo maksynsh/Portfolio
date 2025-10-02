@@ -1,5 +1,5 @@
 import { cva, VariantProps } from 'cva'
-import { HTMLAttributes, ReactNode } from 'react'
+import { HTMLAttributes } from 'react'
 
 import { cn } from '@/lib/utils'
 

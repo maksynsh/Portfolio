@@ -1,12 +1,9 @@
 'use client'
-import { usePathname } from 'next/navigation'
 import { ReactNode, useEffect, useRef, useState } from 'react'
 
 import { cn } from '@/lib/utils'
 
 import { Tabs } from '../ui'
-import { useRouter } from 'next/navigation'
-import { useParams } from 'next/navigation'
 
 export interface NavItem {
   title: string

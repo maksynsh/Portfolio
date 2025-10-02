@@ -2,10 +2,9 @@ import { withSentryConfig } from '@sentry/nextjs'
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  output: 'standalone',
-  // typescript: {
-  //   ignoreBuildErrors: true,
-  // },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   // images: {
   //   unoptimized: true,
   // },
@@ -16,7 +15,7 @@ export default withSentryConfig(nextConfig, {
   // https://github.com/getsentry/sentry-webpack-plugin#options
 
   org: 'maksym-sh',
-  project: 'javascript-nextjs',
+  project: 'portfolio-nextjs',
 
   // Only print logs for uploading source maps in CI
   silent: !process.env.CI,

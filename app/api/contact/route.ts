@@ -1,9 +1,29 @@
-import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
+import z from 'zod'
+
+export const ContactInputs = z.object({
+  firstname: z.string().min(2, { error: 'Please enter your name' }),
+  lastname: z.string().optional(),
+  email: z.email(),
+  service: z
+    .string({ error: 'Choose what services you are interested in' })
+    .nonempty({ error: 'Choose what services you are interested in' }),
+  subject: z.string().nonempty(),
+  message: z.string().nonempty(),
+})
 
 export async function POST(request: Request) {
   try {
     const body = await request.json()
+
+    try {
+      ContactInputs.parse(body)
+    } catch (error) {
+      return new Response(
+        JSON.stringify({ message: 'Invalid input' + error }),
+        { status: 400 },
+      )
+    }
 
     const { firstname, lastname, email, service, subject, message } = body
 
@@ -33,7 +53,7 @@ export async function POST(request: Request) {
     //   return { statusCode: 403, body: JSON.stringify({ error: 'reCAPTCHA verification failed. Please try again.' }) };
     // }
 
-    let transporter = nodemailer.createTransport({
+    const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_SMPT_SERVER,
       port: 587,
       secure: false, // true for 465, false for other ports
@@ -43,7 +63,7 @@ export async function POST(request: Request) {
       },
     })
 
-    const res = await transporter.sendMail({
+    await transporter.sendMail({
       to: process.env.EMAIL_TO,
       from: 'max.sharinov@dev.com',
       subject: `Job offer: ${subject}`,
