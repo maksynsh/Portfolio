@@ -108,7 +108,7 @@ export const Navbar = ({
       <Tabs
         id="navbar-tabs"
         tabs={navItems.map(item => ({ ...item, url: '/' + item.url }))}
-        activeTab={isHomePage() ? activeTab : undefined}
+        activeTab={isHomePage ? activeTab : undefined}
         defaultTab={activeTab}
         containerClassName={`bg-gray-400/5 saturate-50 hover:brightness-110 transition-all 
             backdrop-blur-xl border border-white/10 rounded-full p-1.5 shadow-md gap-2`}
