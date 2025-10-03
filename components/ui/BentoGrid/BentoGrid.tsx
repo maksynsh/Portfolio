@@ -34,6 +34,7 @@ export interface BentoGridItemProps {
   title?: string | React.ReactNode
   description?: string | React.ReactNode
   titleClassName?: string
+  fetchPriority?: 'high'
   img?: { src: string; className?: string }
   spareImg?: { src: string; className?: string }
   extensions?: Array<
@@ -53,6 +54,7 @@ export const BentoGridItem = ({
   title,
   titleClassName,
   description,
+  fetchPriority,
   img,
   spareImg,
   extensions,
@@ -77,7 +79,7 @@ export const BentoGridItem = ({
               width={840}
               height={660}
               quality={90}
-              fetchPriority={!title ? 'high' : undefined}
+              fetchPriority={fetchPriority}
               loading="lazy"
               className={cn(img.className, 'object-cover object-center')}
               src={img.src}

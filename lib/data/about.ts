@@ -7,6 +7,7 @@ export const aboutItems: BentoGridItemProps[] = [
     description: '',
     className: 'lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[610px]',
     titleClassName: 'justify-end text-white',
+    fetchPriority: 'high',
     img: {
       src: '/images/bg/firewatch.webp',
       className:
