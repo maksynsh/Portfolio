@@ -6,6 +6,7 @@ import { Paper } from '../Paper'
 import { EmailAction } from './EmailAction'
 import { TechStack } from './TechStack'
 import { Button } from '../Button'
+import Image from 'next/image'
 
 export const BentoGrid = ({
   className,
@@ -72,7 +73,10 @@ export const BentoGridItem = ({
       >
         <div className="absolute size-full">
           {img && (
-            <img
+            <Image
+              width={840}
+              height={660}
+              quality={93}
               className={cn(img.className, 'object-cover object-center')}
               src={img.src}
               alt={id + '-image'}

@@ -28,18 +28,23 @@ export const TESTIMONIALS = [
 
 export const PARTNERS = [
   {
+    name: 'Cisco',
     img: '/images/logos/cisco.webp',
   },
   {
+    name: 'Ukrainian Railway',
     img: '/images/logos/uz.png',
   },
   {
+    name: 'DreamFlare',
     img: '/images/logos/dreamflare.svg',
   },
   {
+    name: 'EP',
     img: '/images/logos/epp.png',
   },
   {
+    name: 'Sewan',
     img: '/images/logos/sewan.png',
   },
 ]

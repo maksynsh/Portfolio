@@ -1,6 +1,7 @@
 import { PARTNERS, TESTIMONIALS } from '@/lib/data/clients'
 import { InfiniteMarquee, Paper, Tooltip } from '../ui'
 import { useMemo } from 'react'
+import Image from 'next/image'
 
 export const Clients = () => {
   const testimonials = useMemo(() => TESTIMONIALS, [])
@@ -50,8 +51,10 @@ export const Clients = () => {
                       title={author.name}
                       description={author.designation}
                     >
-                      <img
+                      <Image
                         className="rounded-full size-11"
+                        width={44}
+                        height={44}
                         src={author.avatarImageUrl}
                         alt=""
                       />
@@ -82,8 +85,15 @@ export const Clients = () => {
         className="flex flex-wrap mx-auto justify-center gap-x-12 md:gap-x-16
           gap-y-5 max-w-screen-lg"
       >
-        {PARTNERS.map(({ img }) => (
-          <img key={img} className="min-h-14 w-36 object-contain" src={img} />
+        {PARTNERS.map(({ img, name }) => (
+          <Image
+            key={img}
+            width={144}
+            height={144}
+            className="min-h-14 w-36 object-contain"
+            src={img}
+            alt={name}
+          />
         ))}
       </div>
     </section>
