@@ -61,7 +61,7 @@ export const aboutItems: BentoGridItemProps[] = [
     extensions: [
       'centeredContent',
       'backgroundGradientAnimation',
-      'emailContact',
+      'contactLink',
     ],
   },
 ]

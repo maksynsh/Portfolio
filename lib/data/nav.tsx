@@ -8,23 +8,23 @@ import {
 import { NavItem } from '@/components/layout'
 
 export const navItems: NavItem[] = [
-  { title: 'About', value: '#about', url: '/#about', icon: <IoHomeOutline /> },
+  { title: 'About', value: '#about', url: '#about', icon: <IoHomeOutline /> },
   {
     title: 'Projects',
     value: '#projects',
-    url: '/#projects',
+    url: '#projects',
     icon: <IoCodeWorking />,
   },
   {
     title: 'Journey',
     value: '#journey',
-    url: '/#journey',
+    url: '#journey',
     icon: <IoBriefcaseOutline />,
   },
   {
     title: 'Contact',
     value: '#contact',
-    url: '/#contact',
+    url: '#contact',
     icon: <IoChatbubbleEllipsesOutline />,
   },
 ]

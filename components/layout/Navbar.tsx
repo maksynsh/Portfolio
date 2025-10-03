@@ -1,5 +1,5 @@
 'use client'
-import { ReactNode, useEffect, useRef, useState } from 'react'
+import { ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 
 import { cn } from '@/lib/utils'
 
@@ -19,19 +19,25 @@ export const Navbar = ({
   navItems: NavItem[]
   className?: string
 }) => {
-  const getCurrentUrl = () => window.location.pathname + window.location.hash
-  const [activeTab, setActiveTab] = useState<NavItem>()
+  const [activeTab, setActiveTab] = useState(navItems[0])
   const handler = useRef<NodeJS.Timeout>(null)
   const ignoreObserver = useRef(false)
   const ignoreTimeout = useRef<NodeJS.Timeout>(null)
+
+  const isHomePage = () =>
+    useMemo(() => {
+      if (typeof window !== 'undefined') {
+        return window.location.pathname === '/'
+      }
+      return false
+    }, [])
 
   // Listen for hash changes (tab clicks update hash)
   useEffect(() => {
     const onHashChange = () => {
       ignoreObserver.current = true
-
       setActiveTab(
-        navItems.find(tab => tab.url === getCurrentUrl()) ?? undefined,
+        navItems.find(tab => tab.url === window.location.hash) ?? navItems[0],
       )
       // Ignore observer for a short period after hash change
       if (ignoreTimeout.current) clearTimeout(ignoreTimeout.current)
@@ -50,7 +56,7 @@ export const Navbar = ({
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setActiveTab(
-        navItems.find(tab => tab.url === getCurrentUrl()) ?? undefined,
+        navItems.find(tab => tab.url === window.location.hash) ?? navItems[0],
       )
     }
 
@@ -102,8 +108,9 @@ export const Navbar = ({
     >
       <Tabs
         id="navbar-tabs"
-        tabs={navItems}
-        activeTab={activeTab}
+        tabs={navItems.map(item => ({ ...item, url: '/' + item.url }))}
+        activeTab={isHomePage() ? activeTab : undefined}
+        defaultTab={activeTab}
         containerClassName={`bg-gray-400/5 saturate-50 hover:brightness-110 transition-all 
             backdrop-blur-xl border border-white/10 rounded-full p-1.5 shadow-md gap-2`}
         activeTabClassName="bg-gray-500/10 dark:bg-gray-700/20"

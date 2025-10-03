@@ -5,6 +5,7 @@ import { GridGlobe } from '../GridGlobe'
 import { Paper } from '../Paper'
 import { EmailAction } from './EmailAction'
 import { TechStack } from './TechStack'
+import { Button } from '../Button'
 
 export const BentoGrid = ({
   className,
@@ -40,6 +41,7 @@ export interface BentoGridItemProps {
     | 'backgroundGradientAnimation'
     | 'techStack'
     | 'emailContact'
+    | 'contactLink'
     | 'centeredContent'
   >
 }
@@ -125,6 +127,17 @@ export const BentoGridItem = ({
           {extensions?.includes('techStack') && <TechStack />}
 
           {extensions?.includes('emailContact') && <EmailAction />}
+
+          {extensions?.includes('contactLink') && (
+            <Button
+              className="pointer-events-auto mx-auto bg-blue-950 mt-4"
+              variant="magic"
+              size="lg"
+              href={'/contact'}
+            >
+              Send me a request
+            </Button>
+          )}
         </div>
       </div>
     </Paper>
