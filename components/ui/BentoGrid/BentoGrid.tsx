@@ -80,7 +80,7 @@ export const BentoGridItem = ({
               height={660}
               quality={90}
               fetchPriority={fetchPriority}
-              loading="lazy"
+              loading={fetchPriority === 'high' ? 'eager' : 'lazy'}
               className={cn(img.className, 'object-cover object-center')}
               src={img.src}
               alt={id + '-image'}
