@@ -24,13 +24,12 @@ export const Navbar = ({
   const ignoreObserver = useRef(false)
   const ignoreTimeout = useRef<NodeJS.Timeout>(null)
 
-  const isHomePage = () =>
-    useMemo(() => {
-      if (typeof window !== 'undefined') {
-        return window.location.pathname === '/'
-      }
-      return false
-    }, [])
+  const isHomePage = useMemo(() => {
+    if (typeof window !== 'undefined') {
+      return window.location.pathname === '/'
+    }
+    return false
+  }, [])
 
   // Listen for hash changes (tab clicks update hash)
   useEffect(() => {
