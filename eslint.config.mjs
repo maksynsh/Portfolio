@@ -23,6 +23,7 @@ const eslintConfig = [
       'build/**',
       'node_modules/**',
       'public/**',
+      'out/**',
       '.next/**',
       '.git/**',
       '.github/**',

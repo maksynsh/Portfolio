@@ -76,7 +76,9 @@ export const BentoGridItem = ({
             <Image
               width={840}
               height={660}
-              quality={93}
+              quality={90}
+              fetchPriority={!title ? 'high' : undefined}
+              loading="lazy"
               className={cn(img.className, 'object-cover object-center')}
               src={img.src}
               alt={id + '-image'}
